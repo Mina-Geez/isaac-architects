@@ -112,10 +112,10 @@ animation:scrollPulse 2s infinite}
 
 .reveal{opacity:0;transform:translateY(40px);transition:all .9s cubic-bezier(.4,0,.2,1)}
 .reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-left{opacity:0;transform:translateX(-40px);transition:all .9s cubic-bezier(.4,0,.2,1)}
-.reveal-left.visible{opacity:1;transform:translateX(0)}
-.reveal-right{opacity:0;transform:translateX(40px);transition:all .9s cubic-bezier(.4,0,.2,1)}
-.reveal-right.visible{opacity:1;transform:translateX(0)}
+
+/* Typographic polish — avoid single-word orphans/widows */
+.hero-title,.section-title{text-wrap:balance}
+.quote-text,.hero-sub,.about-body p,.approach-card p,.contact-grid > p{text-wrap:pretty}
 
 .stats-bar{background:var(--deep);border-top:1px solid rgba(240,237,232,.06);
 display:grid;grid-template-columns:repeat(3,1fr);padding:0}
@@ -199,37 +199,6 @@ margin-top:.5rem;max-height:0;overflow:hidden;transition:max-height .5s,opacity 
 letter-spacing:.15em;text-transform:uppercase;padding:.4rem .8rem;
 background:var(--stone);color:var(--paper);z-index:2}
 
-.grad-1{background:linear-gradient(135deg,#2a2520 0%,#4a3f35 40%,#6b5b4a 70%,#8b7355 100%)}
-.grad-2{background:linear-gradient(160deg,#1a1a2e 0%,#2d3561 40%,#4a5899 70%,#6875a3 100%)}
-.grad-3{background:linear-gradient(145deg,#1e2a1e 0%,#2d4a2d 40%,#4a6b4a 70%,#6b8b6b 100%)}
-.grad-4{background:linear-gradient(130deg,#2a1f1f 0%,#5a3a3a 40%,#8b5a5a 70%,#a67a6a 100%)}
-.grad-5{background:linear-gradient(155deg,#1a1a1a 0%,#3a3530 40%,#5a5045 60%,#8b7355 100%)}
-.grad-6{background:linear-gradient(140deg,#0e1520 0%,#1e2a3a 40%,#3a4a5a 70%,#5a7080 100%)}
-.grad-7{background:linear-gradient(150deg,#3a2a1a 0%,#6b4a2a 40%,#9b7a4a 70%,#c4a06a 100%)}
-.grad-8{background:linear-gradient(135deg,#1a1520 0%,#2a2535 40%,#4a3a5a 70%,#6a5080 100%)}
-.grad-9{background:linear-gradient(160deg,#1e1e2a 0%,#3a3a5a 40%,#5a5a8a 70%,#7a7aaa 100%)}
-.grad-10{background:linear-gradient(125deg,#2a2520 0%,#4a3a2a 40%,#7a6040 70%,#a08050 100%)}
-.grad-11{background:linear-gradient(145deg,#1a1520 0%,#30252a 40%,#503a40 70%,#705050 100%)}
-.grad-12{background:linear-gradient(135deg,#201a15 0%,#40352a 40%,#605040 70%,#8a7560 100%)}
-.grad-13{background:linear-gradient(150deg,#151a20 0%,#2a3540 40%,#405060 70%,#607080 100%)}
-.grad-14{background:linear-gradient(140deg,#152015 0%,#2a402a 40%,#406040 70%,#608060 100%)}
-.grad-15{background:linear-gradient(135deg,#2a1525 0%,#5a2040 40%,#8a3060 70%,#b04070 100%)}
-.grad-16{background:linear-gradient(155deg,#1a1a1e 0%,#35353a 40%,#505058 70%,#6a6a75 100%)}
-.grad-17{background:linear-gradient(130deg,#251a15 0%,#4a3525 40%,#705040 70%,#956a50 100%)}
-.grad-18{background:linear-gradient(145deg,#1a2020 0%,#2a4040 40%,#3a5a5a 70%,#4a7575 100%)}
-
-.featured{padding:8rem 3rem;background:var(--cloud);overflow:hidden}
-.featured-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-.featured-img{aspect-ratio:4/3;position:relative;overflow:hidden}
-.featured-content .section-label{color:var(--stone)}
-.featured-content h3{font-family:var(--serif);font-size:2.5rem;font-weight:300;
-line-height:1.2;margin-bottom:1.5rem}
-.featured-content p{font-weight:300;line-height:1.8;color:var(--slate);margin-bottom:1rem}
-.featured-meta{display:flex;gap:2rem;margin-top:2rem;padding-top:2rem;
-border-top:1px solid var(--light-gray)}
-.featured-meta div{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--warm-gray)}
-.featured-meta span{display:block;font-family:var(--serif);font-size:1.5rem;
-font-weight:300;color:var(--ink);letter-spacing:0;text-transform:none;margin-top:.25rem}
 
 .approach-grid{max-width:1400px;margin:0 auto;
 display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:4rem}
@@ -248,7 +217,6 @@ color:rgba(240,237,232,.4)}
 .contact-grid > p{font-weight:300;line-height:1.8;color:var(--slate);font-size:1.05rem;max-width:600px;margin:0 auto}
 .contact-info{margin-top:4rem;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;
 padding-top:3rem;border-top:1px solid var(--light-gray);text-align:left}
-.contact-cell{}
 .contact-cell-label{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;
 color:var(--warm-gray);margin-bottom:.75rem}
 .contact-cell-value{font-family:var(--serif);font-size:1.2rem;font-weight:300;color:var(--ink);line-height:1.4}
@@ -276,6 +244,7 @@ display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap
   .section{padding:6rem 2rem}
 }
 @media(max-width:768px){
+  .brk{display:none}
   .nav{padding:1rem max(1.25rem,env(safe-area-inset-right)) 1rem max(1.25rem,env(safe-area-inset-left))}
   .nav.scrolled{padding:.7rem max(1.25rem,env(safe-area-inset-right)) .7rem max(1.25rem,env(safe-area-inset-left))}
   .nav-logo img{height:52px}
@@ -381,7 +350,7 @@ display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap
   </div>
   <div class="hero-content">
     <p class="hero-eyebrow">Architecture &middot; Interiors &middot; Landscape</p>
-    <h1 class="hero-title">Designing spaces<br>that <em>endure</em></h1>
+    <h1 class="hero-title">Designing spaces <br class="brk">that <em>endure</em></h1>
     <p class="hero-sub">An architecture studio based in Alexandria, Egypt &mdash; building work that holds up over time, under sunlight, under use, under scrutiny.</p>
   </div>
   <div class="hero-scroll">
@@ -617,7 +586,7 @@ display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap
 <section class="section" id="about">
   <div class="about">
     <div class="section-label reveal">The Studio</div>
-    <h2 class="section-title reveal">Built on the belief that<br>architecture is an act<br>of <em style="font-family:var(--serif);font-style:italic;color:var(--stone)">care</em></h2>
+    <h2 class="section-title reveal">Built on the belief that <br class="brk">architecture is an act <br class="brk">of <em style="font-family:var(--serif);font-style:italic;color:var(--stone)">care</em></h2>
     <div class="about-body reveal" style="transition-delay:.1s">
       <p>Founded by Eng. Mina Kamal Isaac, Isaac Architects is an Alexandria-based practice dedicated to architecture that serves the people within it.</p>
       <p>The firm has built a reputation for designs that balance classical sensibility with contemporary precision &mdash; work shaped by rigorous attention to context, proportion, and craft, that feels both inevitable and surprising.</p>
@@ -629,7 +598,7 @@ display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap
   <div style="max-width:1400px;margin:0 auto">
     <div class="section-label reveal">Our Process</div>
     <h2 class="section-title reveal" style="color:var(--paper);max-width:600px">
-      Three principles that<br>guide every project
+      Three principles that <br class="brk">guide every project
     </h2>
   </div>
   <div class="approach-grid">
@@ -654,7 +623,7 @@ display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap
 <section class="section" id="contact">
   <div class="contact-section">
     <div class="section-label reveal">Get in Touch</div>
-    <h2 class="section-title reveal">Let's build something<br>that matters</h2>
+    <h2 class="section-title reveal">Let's build something <br class="brk">that matters</h2>
     <div class="contact-grid reveal">
       <p>Whether you're planning a private residence, a commercial development, or a community space, we'd welcome the conversation. Every project begins with a simple question: what do you need this place to do for you?</p>
       <div class="contact-info">
@@ -710,7 +679,7 @@ mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
 const observer=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
 },{threshold:.1,rootMargin:'0px 0px -50px 0px'});
-document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>observer.observe(el));
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
 document.querySelectorAll('.filter-btn').forEach(btn=>{
   btn.addEventListener('click',()=>{
