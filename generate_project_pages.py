@@ -299,6 +299,14 @@ align-items:center;justify-content:center;background:none;border:none;color:var(
 text-decoration:none;opacity:.8;transition:opacity .3s}
 .menu-link:hover,.menu-link:active{opacity:1}
 .menu-cta{display:flex;flex-direction:column;gap:.85rem;width:100%;max-width:300px}
+@keyframes menuItemIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.mobile-menu.open .menu-close,.mobile-menu.open .menu-link,.mobile-menu.open .menu-cta{
+animation:menuItemIn .55s cubic-bezier(.4,0,.2,1) both}
+.mobile-menu.open .menu-links .menu-link:nth-child(1){animation-delay:.08s}
+.mobile-menu.open .menu-links .menu-link:nth-child(2){animation-delay:.14s}
+.mobile-menu.open .menu-links .menu-link:nth-child(3){animation-delay:.20s}
+.mobile-menu.open .menu-links .menu-link:nth-child(4){animation-delay:.26s}
+.mobile-menu.open .menu-cta{animation-delay:.36s}
 
 .reveal{opacity:0;transform:translateY(40px);
 transition:opacity .9s cubic-bezier(.4,0,.2,1),transform .9s cubic-bezier(.4,0,.2,1)}
