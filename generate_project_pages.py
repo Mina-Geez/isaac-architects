@@ -49,7 +49,7 @@ PROJECTS = [
         lead="A 42-classroom institution wrapped in a glass-and-stone envelope.",
         body=[
             "4,500 square meters in Agami, Alexandria. The neo-classic detailing borrows from the surrounding Mediterranean fabric while the generous fenestration signals a modern educational ethic.",
-            "Transparency and permanence held in single composition — windows of learning framed by gravity."
+            "Transparency and permanence, held in a single composition."
         ],
     ),
     dict(
@@ -96,10 +96,10 @@ PROJECTS = [
         slug="afify-palace", name="Afify Palace",
         location="Hawaria, Egypt", category="Residential", type="Palatial Residence",
         area="—", status="—",
-        lead="A grand palatial residence designed to register at the scale of memory.",
+        lead="A grand palatial residence built at a ceremonial scale.",
         body=[
             "Classical proportions, ceremonial symmetry, and ornate detailing throughout.",
-            "Every threshold a gesture; every room a room you can name."
+            "Every threshold is composed; every room earns its place."
         ],
     ),
     dict(
@@ -118,18 +118,18 @@ PROJECTS = [
         area="—", status="Built",
         lead="An elegant classical wedding venue and event-hall complex.",
         body=[
-            "Designed around the simple architectural truth that the most important days of a lifetime deserve the most considered rooms.",
-            "Each hall is a stage. Each transition between halls, a held breath."
+            "Designed around a simple premise: the most important days deserve the most considered rooms.",
+            "Each hall is a stage, and the route between them is choreographed."
         ],
     ),
     dict(
         slug="saint-wanas-church", name="Saint Wanas Church",
         location="Alexandria, Egypt", category="Cultural", type="Religious",
         area="—", status="—",
-        lead="A Gothic-inspired church — architecture in service of the upward gaze.",
+        lead="A Gothic-inspired church — built to carry the eye, and the attention, upward.",
         body=[
-            "Pointed arches, soaring vertical proportions, and stained-glass apertures that translate sunlight into colored prayer.",
-            "Where the structure rises, the spirit follows."
+            "Pointed arches, soaring proportions, and stained glass that turns daylight into color.",
+            "The structure rises, and everything in it is arranged to rise with it."
         ],
     ),
     dict(
@@ -139,7 +139,7 @@ PROJECTS = [
         lead="A Byzantine-style church anchored by a prominent central dome.",
         body=[
             "Sacred geometry inherited from a millennium of liturgical building, executed in contemporary stone and craft.",
-            "The dome holds the room the way an old hymn holds its first note."
+            "The dome gathers the room beneath it and holds it still."
         ],
     ),
     dict(
@@ -188,8 +188,8 @@ PROJECTS = [
         area="—", status="—",
         lead="A grand wedding venue with layered interiors and a deliberate sense of arrival.",
         body=[
-            "Dramatic ceiling lighting. Sequenced thresholds. Designed so guests cross into the hall and recognize that the day has begun.",
-            "The architecture is the first wedding gift."
+            "Dramatic ceiling lighting. Sequenced thresholds. Designed so guests cross into the hall and feel the day begin.",
+            "A room built to meet the occasion it holds."
         ],
     ),
     dict(
