@@ -4,7 +4,7 @@ Rebrand of **IDEA Designs** (Eng. Mina Kamal Isaac, Alexandria, Egypt) into **Is
 
 ## Files
 
-- `isaac-architects-website.html` — the deliverable. Single-file HTML, links to `brand/*.svg`. Contains 18 real projects extracted from the client PDFs, organized by category.
+- `index.html` — the deliverable. Single-file HTML, links to `brand/*.svg`. Contains 18 real projects extracted from the client PDFs, organized by category.
 - `brand/logo-mark.svg`, `brand/logo-lockup-dark.svg`, `brand/logo-lockup-light.svg` — official logos. **Preserve exactly.** Reference them from the HTML rather than re-inlining (inlining bloats the file from ~25 KB to ~1.2 MB).
 - `brand/isaac-architects-brand-system.pdf` — brand guidelines.
 - `Client input - previous projects/` — three image-based source PDFs from the client.

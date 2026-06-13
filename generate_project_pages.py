@@ -375,12 +375,12 @@ display:grid;grid-template-columns:1fr auto 1fr;gap:2rem;align-items:center;bord
 
 NAV_HTML = """
 <nav class="nav">
-  <a class="nav-logo" href="../isaac-architects-website.html"><img src="../brand/logo-lockup-dark.svg" alt="Isaac Architects"></a>
+  <a class="nav-logo" href="../index.html"><img src="../brand/logo-lockup-dark.svg" alt="Isaac Architects"></a>
   <div class="nav-links">
-    <a href="../isaac-architects-website.html#work">Work</a>
-    <a href="../isaac-architects-website.html#about">Studio</a>
-    <a href="../isaac-architects-website.html#approach">Approach</a>
-    <a href="../isaac-architects-website.html#contact">Contact</a>
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#about">Studio</a>
+    <a href="../index.html#approach">Approach</a>
+    <a href="../index.html#contact">Contact</a>
   </div>
 </nav>
 """
@@ -445,7 +445,7 @@ def render_page(p, prev_p, next_p):
 <header class="project-hero">
   <img src="../images/{p['slug']}.jpg" alt="{escape(p['name'])}">
   <div class="project-hero-content">
-    <div class="back-link"><a href="../isaac-architects-website.html#work">&larr; All Projects</a></div>
+    <div class="back-link"><a href="../index.html#work">&larr; All Projects</a></div>
     <div class="category-tag">{escape(p['category'])}</div>
     <h1>{escape(p['name'])}</h1>
     <div class="subtitle">{escape(p['location'])}</div>
@@ -481,7 +481,7 @@ def render_page(p, prev_p, next_p):
     <div class="proj-nav-direction">&larr; Previous</div>
     <div class="proj-nav-name">{escape(prev_p['name'])}</div>
   </a>
-  <a class="all" href="../isaac-architects-website.html#work">All Projects</a>
+  <a class="all" href="../index.html#work">All Projects</a>
   <a class="next" href="{next_p['slug']}.html">
     <div class="proj-nav-direction">Next &rarr;</div>
     <div class="proj-nav-name">{escape(next_p['name'])}</div>
