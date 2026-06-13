@@ -58,6 +58,10 @@ text-decoration:none;opacity:.7;transition:opacity .3s}
 opacity:1!important;transition:all .3s}
 .nav-cta:hover{background:var(--paper);color:var(--deep)!important;border-color:var(--paper)}
 
+.nav-call{display:none;align-items:center;justify-content:center;width:44px;height:44px;
+color:var(--paper);text-decoration:none;transition:color .3s}
+.nav-call:hover,.nav-call:active{color:var(--stone)}
+.nav-call svg{width:20px;height:20px}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:110;
 width:44px;height:44px;align-items:center;justify-content:center;margin-right:-10px;
 background:none;border:none}
@@ -236,6 +240,20 @@ font-weight:500;transition:all .3s;min-height:54px}
 .cta-wa:hover{border-color:var(--stone);color:var(--stone)}
 .cta-call svg,.cta-wa svg{width:18px;height:18px;flex-shrink:0}
 
+.enquiry-intro{text-align:center;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
+color:var(--warm-gray);margin-top:3.5rem;display:flex;align-items:center;justify-content:center;gap:1rem}
+.enquiry-intro::before,.enquiry-intro::after{content:'';width:40px;height:1px;background:var(--light-gray)}
+.enquiry{max-width:520px;margin:2rem auto 0;text-align:left;display:grid;gap:1.4rem}
+.enquiry .field{display:flex;flex-direction:column;gap:.4rem}
+.enquiry label{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--warm-gray)}
+.enquiry input,.enquiry select,.enquiry textarea{font-family:var(--sans);font-size:1rem;color:var(--ink);
+background:transparent;border:none;border-bottom:1px solid var(--light-gray);padding:.55rem 0;transition:border-color .3s}
+.enquiry input:focus,.enquiry select:focus,.enquiry textarea:focus{outline:none;border-color:var(--stone)}
+.enquiry textarea{resize:vertical;min-height:80px}
+.enquiry button.cta-call{width:100%;justify-content:center;border:none;cursor:pointer;
+font-family:var(--sans);margin-top:.5rem}
+.form-note{text-align:center;font-size:.9rem;color:var(--slate);min-height:1.2em;margin-top:.25rem}
+
 .footer{background:var(--deep);padding:3rem;
 display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
 .footer-left{display:flex;align-items:center;gap:2rem}
@@ -262,6 +280,7 @@ display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap
   .nav.scrolled{padding:.7rem max(1.25rem,env(safe-area-inset-right)) .7rem max(1.25rem,env(safe-area-inset-left))}
   .nav-logo img{height:52px}
   .nav-links{display:none}
+  .nav-call{display:inline-flex;margin-left:auto;margin-right:.25rem}
   .hamburger{display:flex}
   .section{padding:4rem 1.25rem}
   .hero{height:auto;min-height:auto;justify-content:flex-start}
@@ -348,6 +367,9 @@ display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap
     <a href="#approach">Approach</a>
     <a href="#contact" class="nav-cta">Contact</a>
   </div>
+  <a class="nav-call" href="tel:+201274348575" aria-label="Call the studio">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg>
+  </a>
   <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -652,6 +674,33 @@ display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap
           WhatsApp
         </a>
       </div>
+
+      <div class="enquiry-intro">Or send an enquiry</div>
+      <form class="enquiry" id="enquiryForm" novalidate>
+        <div class="field">
+          <label for="enqName">Name</label>
+          <input id="enqName" name="name" type="text" autocomplete="name" required placeholder="Your name">
+        </div>
+        <div class="field">
+          <label for="enqContact">Phone or email</label>
+          <input id="enqContact" name="contact" type="text" required placeholder="How we should reach you">
+        </div>
+        <div class="field">
+          <label for="enqType">Project type</label>
+          <select id="enqType" name="type">
+            <option>Residential</option><option>Commercial</option><option>Institutional</option>
+            <option>Hospitality</option><option>Interior</option><option>Cultural</option>
+            <option>Landscape</option><option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="enqMsg">About your project</label>
+          <textarea id="enqMsg" name="message" placeholder="Location, scale, timeline, and what you have in mind…"></textarea>
+        </div>
+        <button type="submit" class="cta-call">Send enquiry</button>
+        <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+      </form>
+
       <div class="contact-info">
         <div class="contact-cell">
           <div class="contact-cell-label">Email</div>
@@ -739,6 +788,37 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
   });
 });
+
+/* Enquiry form. Works immediately by composing an email to the studio.
+   To deliver submissions straight to the inbox (no email app needed), create a
+   free form at formspree.io and paste its id below — e.g. FORMSPREE_ID='xeoqybgr'. */
+const FORMSPREE_ID='';
+const enq=document.getElementById('enquiryForm');
+if(enq){
+  enq.addEventListener('submit',e=>{
+    e.preventDefault();
+    const note=document.getElementById('formNote');
+    const fd=new FormData(enq);
+    const name=(fd.get('name')||'').trim();
+    const contact=(fd.get('contact')||'').trim();
+    const type=fd.get('type')||'';
+    const msg=(fd.get('message')||'').trim();
+    if(!name||!contact){note.textContent='Please add your name and how to reach you.';return;}
+    if(FORMSPREE_ID){
+      const btn=enq.querySelector('button');btn.disabled=true;note.textContent='Sending…';
+      fetch('https://formspree.io/f/'+FORMSPREE_ID,{method:'POST',body:fd,headers:{Accept:'application/json'}})
+        .then(r=>{if(r.ok){enq.reset();note.textContent='Thank you — we’ll be in touch shortly.';}
+                  else{note.textContent='Something went wrong. Please call or WhatsApp us.';}})
+        .catch(()=>{note.textContent='Something went wrong. Please call or WhatsApp us.';})
+        .finally(()=>{btn.disabled=false;});
+    }else{
+      const subject='Project enquiry from '+name;
+      const body='Name: '+name+'\nContact: '+contact+'\nProject type: '+type+'\n\n'+msg;
+      window.location.href='mailto:ideadesigns.arch@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+      note.textContent='Opening your email app…';
+    }
+  });
+}
 </script>
 </body>
 </html>
