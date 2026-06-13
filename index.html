@@ -295,10 +295,19 @@ display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap
   .quote-attribution{flex-direction:row;font-size:.6rem;letter-spacing:.2em}
   .quote-attribution::before,.quote-attribution::after{width:18px}
   .projects-header{flex-direction:column;align-items:flex-start;gap:1.5rem;margin-bottom:2rem}
-  .projects-grid{grid-template-columns:1fr;gap:1rem}
-  .project-card.wide{aspect-ratio:4/5}
-  .project-info{padding:1.5rem}
-  .project-name{font-size:1.25rem}
+  .projects-grid{grid-template-columns:repeat(2,1fr);gap:.6rem}
+  .project-card{aspect-ratio:3/4}
+  .project-card.wide{grid-column:span 2;aspect-ratio:16/10}
+  .project-info{padding:1rem .9rem}
+  .project-category{font-size:.55rem;margin-bottom:.3rem}
+  .project-name{font-size:1rem;line-height:1.15;margin-bottom:.2rem}
+  .project-location{font-size:.7rem}
+  .project-card:not(.wide) .project-location{display:none}
+  .project-card:not(.wide) .project-name{display:-webkit-box;-webkit-line-clamp:2;
+    -webkit-box-orient:vertical;overflow:hidden}
+  .project-card.wide .project-info{padding:1.5rem}
+  .project-card.wide .project-name{font-size:1.4rem}
+  .project-card.wide .project-location{display:block}
   .filter-bar{display:none}
   .filter-select-wrap{display:block}
   .about-body p{font-size:1rem}
