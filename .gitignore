@@ -1,0 +1,29 @@
+# Large generated PDF page renders (regenerate from source PDFs with pymupdf)
+pdf_pages/
+
+# Original client source PDFs — kept out of public repo
+Client input - previous projects/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+.venv/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# Local
+*.log

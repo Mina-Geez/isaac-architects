@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Isaac Architects — Alexandria, Egypt</title>
+<meta name="description" content="An Alexandria-based architecture studio. Residential, commercial, institutional, hospitality, cultural, interior, and landscape work across Egypt — built to hold up over time.">
+<link rel="canonical" href="https://mina-geez.github.io/isaac-architects/">
+<link rel="icon" type="image/svg+xml" href="brand/logo-mark.svg">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mina-geez.github.io/isaac-architects/">
+<meta property="og:title" content="Isaac Architects — Alexandria, Egypt">
+<meta property="og:description" content="An Alexandria-based architecture studio. Built work that holds up over time — under sunlight, under use, under scrutiny.">
+<meta property="og:image" content="https://mina-geez.github.io/isaac-architects/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Isaac Architects">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Isaac Architects — Alexandria, Egypt">
+<meta name="twitter:description" content="An Alexandria-based architecture studio. Built work that holds up over time.">
+<meta name="twitter:image" content="https://mina-geez.github.io/isaac-architects/images/og-image.jpg">
+
+<meta name="theme-color" content="#0E0E0E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--ink:#1A1A1A;--paper:#FAFAF8;--stone:#8B7355;--warm-gray:#B5AFA6;
+--light-gray:#E8E5E0;--cloud:#F3F1ED;--deep:#0E0E0E;--slate:#4A4A48;
+--serif:'Cormorant Garamond',Georgia,serif;
+--sans:'DM Sans','Helvetica Neue',sans-serif;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);
+overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--stone);color:var(--paper)}
+
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
+opacity:.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;
+padding:1.5rem 3rem;display:flex;align-items:center;justify-content:space-between;
+transition:all .5s cubic-bezier(.4,0,.2,1)}
+.nav.scrolled{background:rgba(14,14,14,.92);backdrop-filter:blur(20px);padding:1rem 3rem}
+.nav-logo img{height:56px;transition:opacity .3s}
+.nav-links{display:flex;gap:2.5rem;align-items:center}
+.nav-links a{font-family:var(--sans);font-size:.75rem;font-weight:400;
+letter-spacing:.15em;text-transform:uppercase;color:var(--paper);
+text-decoration:none;opacity:.7;transition:opacity .3s}
+.nav-links a:hover{opacity:1}
+.nav-cta{padding:.5rem 1.5rem;border:1px solid rgba(240,237,232,.3);
+opacity:1!important;transition:all .3s}
+.nav-cta:hover{background:var(--paper);color:var(--deep)!important;border-color:var(--paper)}
+
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:110;padding:4px;background:none;border:none}
+.hamburger span{display:block;width:24px;height:1.5px;background:var(--paper);transition:all .3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
+
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--deep);z-index:105;
+flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:var(--serif);font-size:2rem;font-weight:300;
+color:var(--paper);text-decoration:none;opacity:.7;transition:opacity .3s}
+.mobile-menu a:hover{opacity:1}
+
+.hero{position:relative;height:100vh;min-height:700px;background:var(--deep);
+display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;
+background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(139,115,85,.08),transparent),
+radial-gradient(ellipse 50% 50% at 80% 20%,rgba(139,115,85,.05),transparent),
+linear-gradient(180deg,transparent 0%,rgba(14,14,14,.4) 100%)}
+.hero-bg-pattern{position:absolute;inset:0;opacity:.015;
+background-image:repeating-linear-gradient(90deg,var(--paper) 0,var(--paper) 1px,transparent 1px,transparent 120px),
+repeating-linear-gradient(0deg,var(--paper) 0,var(--paper) 1px,transparent 1px,transparent 120px)}
+
+.hero-content{position:relative;z-index:2;padding:0 3rem 6rem;max-width:1400px;width:100%}
+.hero-eyebrow{font-family:var(--sans);font-size:.7rem;font-weight:300;
+letter-spacing:.3em;text-transform:uppercase;color:var(--stone);margin-bottom:1.5rem;
+opacity:0;transform:translateY(20px);animation:fadeUp .8s .3s forwards}
+.hero-title{font-family:var(--serif);font-weight:300;font-size:clamp(3rem,7vw,6.5rem);
+line-height:.95;color:var(--paper);margin-bottom:2rem;
+opacity:0;transform:translateY(30px);animation:fadeUp 1s .5s forwards}
+.hero-title em{font-style:italic;color:var(--stone)}
+.hero-sub{font-family:var(--sans);font-weight:300;font-size:1rem;
+color:rgba(240,237,232,.5);max-width:500px;line-height:1.7;
+opacity:0;transform:translateY(20px);animation:fadeUp .8s .8s forwards}
+
+.hero-logo-watermark{position:absolute;top:50%;right:5%;transform:translateY(-50%);
+opacity:.03;z-index:1;pointer-events:none}
+.hero-logo-watermark img{height:400px;filter:invert(1)}
+
+.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+display:flex;flex-direction:column;align-items:center;gap:.5rem;z-index:2;
+opacity:0;animation:fadeUp .6s 1.2s forwards}
+.hero-scroll span{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;
+color:rgba(240,237,232,.3)}
+.hero-scroll-line{width:1px;height:40px;background:linear-gradient(180deg,var(--stone),transparent);
+animation:scrollPulse 2s infinite}
+
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+@keyframes scrollPulse{0%,100%{opacity:.3;transform:scaleY(1)}50%{opacity:1;transform:scaleY(.6)}}
+
+.reveal{opacity:0;transform:translateY(40px);transition:all .9s cubic-bezier(.4,0,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:all .9s cubic-bezier(.4,0,.2,1)}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(40px);transition:all .9s cubic-bezier(.4,0,.2,1)}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+
+.stats-bar{background:var(--deep);border-top:1px solid rgba(240,237,232,.06);
+display:grid;grid-template-columns:repeat(3,1fr);padding:0}
+.stat{padding:3rem;text-align:center;border-right:1px solid rgba(240,237,232,.06)}
+.stat:last-child{border-right:none}
+.stat-number{font-family:var(--serif);font-size:3.5rem;font-weight:300;color:var(--stone);line-height:1}
+.stat-label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
+color:rgba(240,237,232,.35);margin-top:.5rem}
+
+.section{padding:8rem 3rem}
+.section-dark{background:var(--deep);color:var(--paper)}
+.section-label{font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;
+color:var(--stone);margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem}
+.section-label::before{content:'';width:40px;height:1px;background:var(--stone)}
+.section-title{font-family:var(--serif);font-weight:300;
+font-size:clamp(2rem,4vw,3.5rem);line-height:1.15;margin-bottom:2rem}
+
+.about{max-width:900px;margin:0 auto;text-align:center}
+.about .section-label{justify-content:center}
+.about .section-label::before{display:none}
+.about-body{margin-top:2rem}
+.about-body p{font-weight:300;line-height:1.8;color:var(--slate);margin-bottom:1.5rem;
+font-size:1.1rem;max-width:780px;margin-left:auto;margin-right:auto}
+
+.quote-section{padding:9rem 3rem;background:var(--paper);text-align:center;position:relative;overflow:hidden}
+.quote-section::before{content:'';position:absolute;top:0;left:50%;width:1px;height:60px;
+background:linear-gradient(180deg,transparent,var(--stone));transform:translateX(-50%)}
+.quote-section::after{content:'';position:absolute;bottom:0;left:50%;width:1px;height:60px;
+background:linear-gradient(0deg,transparent,var(--stone));transform:translateX(-50%)}
+.quote-inner{max-width:900px;margin:0 auto;position:relative}
+.quote-mark{font-family:var(--serif);font-size:10rem;color:var(--stone);opacity:.18;
+line-height:1;display:block;margin-bottom:-3rem;font-style:italic}
+.quote-text{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:300;
+font-style:italic;line-height:1.45;color:var(--ink);margin:0 auto 2.5rem;max-width:780px}
+.quote-text em{font-style:normal;color:var(--stone)}
+.quote-attribution{font-family:var(--sans);font-size:.7rem;letter-spacing:.3em;
+text-transform:uppercase;color:var(--slate);display:flex;align-items:center;justify-content:center;gap:1rem}
+.quote-attribution::before,.quote-attribution::after{content:'';width:30px;height:1px;background:var(--warm-gray)}
+
+.projects-header{max-width:1400px;margin:0 auto 3rem;
+display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:2rem}
+.filter-bar{display:flex;gap:.5rem;flex-wrap:wrap}
+.filter-btn{font-family:var(--sans);font-size:.7rem;letter-spacing:.15em;
+text-transform:uppercase;padding:.6rem 1.2rem;background:none;border:1px solid rgba(240,237,232,.15);
+color:rgba(240,237,232,.4);cursor:pointer;transition:all .3s}
+.filter-btn:hover,.filter-btn.active{color:var(--paper);border-color:var(--stone);background:rgba(139,115,85,.15)}
+
+.projects-grid{max-width:1400px;margin:0 auto;
+display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.project-card{position:relative;overflow:hidden;cursor:pointer;
+aspect-ratio:4/5;background:var(--deep);display:block;color:inherit;text-decoration:none}
+.project-card.wide{grid-column:span 2;aspect-ratio:8/5}
+.project-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.4,0,.2,1)}
+.project-card:hover .project-img{transform:scale(1.05)}
+.project-overlay{position:absolute;inset:0;
+background:linear-gradient(0deg,rgba(14,14,14,.85) 0%,rgba(14,14,14,.1) 50%,transparent 100%);
+transition:all .5s}
+.project-card:hover .project-overlay{background:linear-gradient(0deg,rgba(14,14,14,.9) 0%,rgba(14,14,14,.3) 60%,rgba(139,115,85,.05) 100%)}
+.project-info{position:absolute;bottom:0;left:0;right:0;padding:2rem;
+transform:translateY(10px);transition:transform .5s cubic-bezier(.4,0,.2,1)}
+.project-card:hover .project-info{transform:translateY(0)}
+.project-category{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--stone);margin-bottom:.5rem}
+.project-name{font-family:var(--serif);font-size:1.5rem;font-weight:400;
+color:var(--paper);line-height:1.2;margin-bottom:.3rem}
+.project-location{font-size:.75rem;font-weight:300;color:rgba(240,237,232,.4)}
+.project-details{font-size:.75rem;font-weight:300;color:rgba(240,237,232,.3);
+margin-top:.5rem;max-height:0;overflow:hidden;transition:max-height .5s,opacity .5s;opacity:0}
+.project-card:hover .project-details{max-height:60px;opacity:1}
+.project-badge{position:absolute;top:1.5rem;right:1.5rem;font-size:.6rem;
+letter-spacing:.15em;text-transform:uppercase;padding:.4rem .8rem;
+background:var(--stone);color:var(--paper);z-index:2}
+
+.grad-1{background:linear-gradient(135deg,#2a2520 0%,#4a3f35 40%,#6b5b4a 70%,#8b7355 100%)}
+.grad-2{background:linear-gradient(160deg,#1a1a2e 0%,#2d3561 40%,#4a5899 70%,#6875a3 100%)}
+.grad-3{background:linear-gradient(145deg,#1e2a1e 0%,#2d4a2d 40%,#4a6b4a 70%,#6b8b6b 100%)}
+.grad-4{background:linear-gradient(130deg,#2a1f1f 0%,#5a3a3a 40%,#8b5a5a 70%,#a67a6a 100%)}
+.grad-5{background:linear-gradient(155deg,#1a1a1a 0%,#3a3530 40%,#5a5045 60%,#8b7355 100%)}
+.grad-6{background:linear-gradient(140deg,#0e1520 0%,#1e2a3a 40%,#3a4a5a 70%,#5a7080 100%)}
+.grad-7{background:linear-gradient(150deg,#3a2a1a 0%,#6b4a2a 40%,#9b7a4a 70%,#c4a06a 100%)}
+.grad-8{background:linear-gradient(135deg,#1a1520 0%,#2a2535 40%,#4a3a5a 70%,#6a5080 100%)}
+.grad-9{background:linear-gradient(160deg,#1e1e2a 0%,#3a3a5a 40%,#5a5a8a 70%,#7a7aaa 100%)}
+.grad-10{background:linear-gradient(125deg,#2a2520 0%,#4a3a2a 40%,#7a6040 70%,#a08050 100%)}
+.grad-11{background:linear-gradient(145deg,#1a1520 0%,#30252a 40%,#503a40 70%,#705050 100%)}
+.grad-12{background:linear-gradient(135deg,#201a15 0%,#40352a 40%,#605040 70%,#8a7560 100%)}
+.grad-13{background:linear-gradient(150deg,#151a20 0%,#2a3540 40%,#405060 70%,#607080 100%)}
+.grad-14{background:linear-gradient(140deg,#152015 0%,#2a402a 40%,#406040 70%,#608060 100%)}
+.grad-15{background:linear-gradient(135deg,#2a1525 0%,#5a2040 40%,#8a3060 70%,#b04070 100%)}
+.grad-16{background:linear-gradient(155deg,#1a1a1e 0%,#35353a 40%,#505058 70%,#6a6a75 100%)}
+.grad-17{background:linear-gradient(130deg,#251a15 0%,#4a3525 40%,#705040 70%,#956a50 100%)}
+.grad-18{background:linear-gradient(145deg,#1a2020 0%,#2a4040 40%,#3a5a5a 70%,#4a7575 100%)}
+
+.featured{padding:8rem 3rem;background:var(--cloud);overflow:hidden}
+.featured-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.featured-img{aspect-ratio:4/3;position:relative;overflow:hidden}
+.featured-content .section-label{color:var(--stone)}
+.featured-content h3{font-family:var(--serif);font-size:2.5rem;font-weight:300;
+line-height:1.2;margin-bottom:1.5rem}
+.featured-content p{font-weight:300;line-height:1.8;color:var(--slate);margin-bottom:1rem}
+.featured-meta{display:flex;gap:2rem;margin-top:2rem;padding-top:2rem;
+border-top:1px solid var(--light-gray)}
+.featured-meta div{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--warm-gray)}
+.featured-meta span{display:block;font-family:var(--serif);font-size:1.5rem;
+font-weight:300;color:var(--ink);letter-spacing:0;text-transform:none;margin-top:.25rem}
+
+.approach-grid{max-width:1400px;margin:0 auto;
+display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:4rem}
+.approach-card{padding:3rem;background:rgba(240,237,232,.03);
+border:1px solid rgba(240,237,232,.06);transition:all .5s}
+.approach-card:hover{background:rgba(139,115,85,.08);border-color:rgba(139,115,85,.2)}
+.approach-num{font-family:var(--serif);font-size:3rem;font-weight:300;
+color:var(--stone);opacity:.4;margin-bottom:1.5rem}
+.approach-card h4{font-family:var(--serif);font-size:1.4rem;font-weight:400;
+color:var(--paper);margin-bottom:1rem}
+.approach-card p{font-size:.9rem;font-weight:300;line-height:1.7;
+color:rgba(240,237,232,.4)}
+
+.contact-section{max-width:1400px;margin:0 auto}
+.contact-grid{max-width:900px;margin:3rem auto 0;text-align:center}
+.contact-grid > p{font-weight:300;line-height:1.8;color:var(--slate);font-size:1.05rem;max-width:600px;margin:0 auto}
+.contact-info{margin-top:4rem;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;
+padding-top:3rem;border-top:1px solid var(--light-gray);text-align:left}
+.contact-cell{}
+.contact-cell-label{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;
+color:var(--warm-gray);margin-bottom:.75rem}
+.contact-cell-value{font-family:var(--serif);font-size:1.2rem;font-weight:300;color:var(--ink);line-height:1.4}
+.contact-cell-value a{color:var(--ink);text-decoration:none;transition:color .3s}
+.contact-cell-value a:hover{color:var(--stone)}
+
+.footer{background:var(--deep);padding:3rem;
+display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
+.footer-left{display:flex;align-items:center;gap:2rem}
+.footer-logo img{height:24px}
+.footer-copy{font-size:.7rem;color:rgba(240,237,232,.3);letter-spacing:.05em}
+.footer-right{font-size:.7rem;color:rgba(240,237,232,.3);letter-spacing:.05em}
+
+@media(max-width:1024px){
+  .nav{padding:1.2rem 2rem}
+  .nav.scrolled{padding:1rem 2rem}
+  .projects-grid{grid-template-columns:repeat(2,1fr)}
+  .project-card.wide{grid-column:span 1;aspect-ratio:4/5}
+  .approach-grid{grid-template-columns:1fr}
+  .stats-bar{grid-template-columns:1fr}
+  .stat{border-right:none;border-bottom:1px solid rgba(240,237,232,.06);padding:2rem}
+  .stat:last-child{border-bottom:none}
+  .quote-section{padding:7rem 2rem}
+  .approach-card{padding:2.5rem 2rem}
+  .section{padding:6rem 2rem}
+}
+@media(max-width:768px){
+  .nav{padding:1rem 1.25rem}
+  .nav.scrolled{padding:.7rem 1.25rem}
+  .nav-logo img{height:40px}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .section{padding:4rem 1.25rem}
+  .hero{min-height:600px}
+  .hero-content{padding:0 1.25rem 3rem}
+  .hero-eyebrow{margin-bottom:1rem;font-size:.65rem}
+  .hero-title{margin-bottom:1.25rem}
+  .hero-sub{font-size:.95rem}
+  .stat{padding:1.75rem}
+  .stat-number{font-size:2.75rem}
+  .quote-section{padding:4.5rem 1.25rem}
+  .quote-section::before,.quote-section::after{height:40px}
+  .quote-mark{font-size:6rem;margin-bottom:-1.5rem}
+  .quote-attribution{flex-direction:row;font-size:.6rem;letter-spacing:.2em}
+  .quote-attribution::before,.quote-attribution::after{width:18px}
+  .projects-header{flex-direction:column;align-items:flex-start;gap:1.5rem;margin-bottom:2rem}
+  .projects-grid{grid-template-columns:1fr;gap:.75rem}
+  .project-card.wide{aspect-ratio:4/5}
+  .project-info{padding:1.5rem}
+  .project-name{font-size:1.25rem}
+  .filter-bar{overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%;padding-bottom:.5rem;flex-wrap:nowrap;
+    margin:0 -1.25rem;padding-left:1.25rem;padding-right:1.25rem}
+  .filter-btn{white-space:nowrap;flex-shrink:0;padding:.7rem 1.1rem;min-height:40px}
+  .about-body p{font-size:1rem}
+  .approach-card{padding:2rem 1.5rem}
+  .contact-info{grid-template-columns:1fr;gap:1.5rem;text-align:center;margin-top:3rem;padding-top:2rem}
+  .contact-cell-value{font-size:1.1rem}
+  .footer{flex-direction:column;text-align:center;gap:1rem;padding:2rem 1.25rem}
+  .footer-left{flex-direction:column;gap:1rem}
+  .hero-logo-watermark{display:none}
+}
+@media(max-width:480px){
+  .hero-eyebrow{letter-spacing:.2em}
+  .hero-scroll{display:none}
+  .stat{padding:1.5rem}
+  .quote-mark{font-size:4.5rem}
+  .quote-text{font-size:1.35rem;line-height:1.4}
+  .project-badge{top:1rem;right:1rem;font-size:.55rem}
+  .approach-num{font-size:2.25rem;margin-bottom:1rem}
+  .approach-card h4{font-size:1.2rem}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-logo">
+    <img src="brand/logo-lockup-dark.svg" alt="Isaac Architects" height="56">
+  </div>
+  <div class="nav-links">
+    <a href="#work">Work</a>
+    <a href="#about">Studio</a>
+    <a href="#approach">Approach</a>
+    <a href="#contact" class="nav-cta">Contact</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#work">Work</a>
+  <a href="#about">Studio</a>
+  <a href="#approach">Approach</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<section class="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-logo-watermark">
+    <img src="brand/logo-mark.svg" alt="">
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Architecture &middot; Interiors &middot; Landscape</p>
+    <h1 class="hero-title">Designing spaces<br>that <em>endure</em></h1>
+    <p class="hero-sub">An architecture studio based in Alexandria, Egypt &mdash; building work that holds up over time, under sunlight, under use, under scrutiny.</p>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="stat reveal">
+    <div class="stat-number">18+</div>
+    <div class="stat-label">Completed Projects</div>
+  </div>
+  <div class="stat reveal" style="transition-delay:.1s">
+    <div class="stat-number">15+</div>
+    <div class="stat-label">Years Experience</div>
+  </div>
+  <div class="stat reveal" style="transition-delay:.2s">
+    <div class="stat-number">50K+</div>
+    <div class="stat-label">Square Meters Designed</div>
+  </div>
+</div>
+
+<section class="quote-section">
+  <div class="quote-inner reveal">
+    <span class="quote-mark">&ldquo;</span>
+    <p class="quote-text">We don't design buildings. We design the <em>quality of hours</em> spent inside them &mdash; the light that wakes you, the silence that steadies you, the threshold that tells you: <em>you're home</em>.</p>
+    <p class="quote-attribution">Eng. Mina Kamal Isaac &middot; Founder</p>
+  </div>
+</section>
+
+<section class="section section-dark" id="work">
+  <div class="projects-header">
+    <div>
+      <div class="section-label reveal">Selected Work</div>
+      <h2 class="section-title reveal" style="color:var(--paper)">Portfolio</h2>
+    </div>
+    <div class="filter-bar reveal">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="residential">Residential</button>
+      <button class="filter-btn" data-filter="commercial">Commercial</button>
+      <button class="filter-btn" data-filter="institutional">Institutional</button>
+      <button class="filter-btn" data-filter="hospitality">Hospitality</button>
+      <button class="filter-btn" data-filter="interior">Interior</button>
+      <button class="filter-btn" data-filter="cultural">Cultural</button>
+      <button class="filter-btn" data-filter="landscape">Landscape</button>
+    </div>
+  </div>
+
+  <div class="projects-grid" id="projectsGrid">
+
+    <a class="project-card wide reveal" data-category="commercial" href="projects/vidorra-commercial-centre.html">
+      <img class="project-img" src="images/vidorra-commercial-centre.jpg" alt="Vidorra Commercial Centre — exterior rendering" loading="lazy">
+      <div class="project-overlay"></div>
+      <span class="project-badge">Built</span>
+      <div class="project-info">
+        <div class="project-category">Commercial</div>
+        <div class="project-name">Vidorra Commercial Centre</div>
+        <div class="project-location">King Mariout, Egypt</div>
+        <div class="project-details">Two bank branches, play school, 15 stores, clinics & pharmacies. Classic styled complex.</div>
+      </div>
+    </a><a class="project-card reveal" data-category="institutional" style="transition-delay:.1s" href="projects/be-sagy-school.html">
+      <img class="project-img" src="images/be-sagy-school.jpg" alt="BE Sagy International School Complex — rotunda rendering" loading="lazy">
+      <div class="project-overlay"></div>
+      <div class="project-info">
+        <div class="project-category">Institutional</div>
+        <div class="project-name">BE Sagy International School Complex</div>
+        <div class="project-location">Abis, Alexandria</div>
+        <div class="project-details">26,000 sqm. National, British & American schools, theater, Olympic pool.</div>
+      </div>
+    </a><a class="project-card reveal" data-category="residential" style="transition-delay:.15s" href="projects/panacea-2.html">
+      <img class="project-img" src="images/panacea-2.jpg" alt="Panacea 2 Compound — dusk view" loading="lazy">
+      <div class="project-overlay"></div>
+      <div class="project-info">
+        <div class="project-category">Residential</div>
+        <div class="project-name">Panacea 2 Compound</div>
+        <div class="project-location">King Mariout, Egypt</div>
+        <div class="project-details">32 townhouse villas, 10 standalone villas, 82 apartments, pool & club house.</div>
+      </div>
+    </a><a class="project-card reveal" data-category="residential" style="transition-delay:.05s" href="projects/villa-tadros.html">
+      <img class="project-img" src="images/villa-tadros.jpg" alt="Villa Tadros — modern villa exterior" loading="lazy">
+      <div class="project-overlay"></div>
+      <span class="project-badge">Built</span>
+      <div class="project-info">
+        <div class="project-category">Residential</div>
+        <div class="project-name">Villa Tadros</div>
+        <div class="project-location">King Mariout, Egypt</div>
+        <div class="project-details">Modern minimalist villa, 650 sqm. From imagination to reality.</div>
+      </div>
+    </a><a class="project-card wide reveal" data-category="hospitality" style="transition-delay:.1s" href="projects/sea-star-convention.html">
+      <img class="project-img" src="images/sea-star-convention.jpg" alt="Sea Star Convention Centre — banquet hall" loading="lazy">
+      <div class="project-overlay"></div>
+      <span class="project-badge">Built</span>
+      <div class="project-info">
+        <div class="project-category">Hospitality</div>
+        <div class="project-name">Sea Star Convention Centre</div>
+        <div class="project-location">Alexandria, Egypt</div>
+        <div class="project-details">Large-scale events and convention center.</div>
+      </div>
+    </a><a class="project-card reveal" data-category="cultural" style="transition-delay:.15s" href="projects/saint-wanas-church.html">
+      <img class="project-img" src="images/saint-wanas-church.jpg" alt="Saint Wanas Church — exterior" loading="lazy">
+      <div class="project-overlay"></div>
+      <div class="project-info">
+        <div class="project-category">Cultural</div>
+        <div class="project-name">Saint Wanas Church</div>
+        <div class="project-location">Alexandria, Egypt</div>
+        <div class="project-details">Gothic-inspired church with pointed arches and soaring verticality.</div>
+      </div>
+    </a><a class="project-card reveal" data-category="interior" style="transition-delay:.05s" href="projects/agora-bowling.html">
+      <img class="project-img" src="images/agora-bowling.jpg" alt="Agora Bowling & Gaming Center — interior" loading="lazy">
+      <div class="project-overlay"></div>
+      <div class="project-info">
+        <div class="project-category">Interior</div>
+        <div class="project-name">Agora Bowling & Gaming Center</div>
+        <div class="project-location">Vidorra Mall</div>
+        <div class="project-details">Circus-themed entertainment venue with bowling lanes and gaming areas.</div>
+      </div>
+    </a><a class="project-card reveal" data-category="hospitality" style="transition-delay:.1s" href="projects/royal-wedding-complex.html">
+      <img class="project-img" src="images/royal-wedding-complex.jpg" alt="Royal Wedding Complex — exterior" loading="lazy">
+      <div class="project-overlay"></div>
+      <span class="project-badge">Built</span>
+      <div class="project-info">
+        <div class="project-category">Hospitality</div>
+        <div class="project-name">Royal Wedding Complex</div>
+        <div class="project-location">Alexandria, Egypt</div>
+        <div class="project-details">Elegant classic wedding venue and event halls.</div>
+      </div>
+    </a><a class="project-card reveal" data-category="residential" style="transition-delay:.15s" href="projects/villa-marc.html">
+      <img class="project-img" src="images/villa-marc.jpg" alt="Villa Marc — interior" loading="lazy">
+      <div class="project-overlay"></div>
+      <div class="project-info">
+        <div class="project-category">Residential</div>
+        <div class="project-name">Villa Marc</div>
+        <div class="project-location">King Mariout, Egypt</div>
+        <div class="project-details">Modern villa, 400 sqm. Clean lines and contemporary form.</div>
+      </div>
+    </a><a class="project-card reveal" data-category="institutional" style="transition-delay:.05s" href="projects/rakoty-school.html">
+      <img class="project-img" src="images/rakoty-school.jpg" alt="Rakoty Language National School — entrance" loading="lazy">
+      <div class="project-overlay"></div>
+      <div class="project-info">
+        <div class="project-category">Institutional</div>
+        <div class="project-name">Rakoty Language National School</div>
+        <div class="project-location">Agami, Alexandria</div>
+        <div class="project-details">42 classes, 4,500 sqm. Glass & stone neo-classic structure.</div>
+      </div>
+    </a><a class="project-card reveal" data-category="cultural" style="transition-delay:.1s" href="projects/pope-kirilos-church.html">
+      <img class="project-img" src="images/pope-kirilos-church.jpg" alt="Pope Kirilos Church — dome and stained glass" loading="lazy">
+      <div class="project-overlay"></div>
+      <div class="project-info">
+        <div class="project-category">Cultural</div>
+        <div class="project-name">Pope Kirilos Church</div>
+        <div class="project-location">Aom Zighio, Alexandria</div>
+        <div class="project-details">Byzantine-style church with prominent dome and sacred geometry.</div>
+      </div>
+    </a><a class="project-card wide reveal" data-category="interior" style="transition-delay:.15s" href="projects/sandy-wedding-halls.html">
+      <img class="project-img" src="images/sandy-wedding-halls.jpg" alt="Sandy Wedding Halls — interior" loading="lazy">
+      <div class="project-overlay"></div>
+      <div class="project-info">
+        <div class="project-category">Interior</div>
+        <div class="project-name">Sandy Wedding Halls</div>
+        <div class="project-location">Alexandria, Egypt</div>
+        <div class="project-details">Grand wedding venue interior design with luxurious detailing.</div>
+      </div>
+    </a><a class="project-card reveal" data-category="residential" style="transition-delay:.05s" href="projects/villa-merry-land.html">
+      <img class="project-img" src="images/villa-merry-land.jpg" alt="Villa Merry Land — front entry" loading="lazy">
+      <div class="project-overlay"></div>
+      <div class="project-info">
+        <div class="project-category">Residential</div>
+        <div class="project-name">Villa Merry Land</div>
+        <div class="project-location">King Mariout, Egypt</div>
+        <div class="project-details">Mediterranean style villa with terracotta roofs and warm materiality.</div>
+      </div>
+    </a><a class="project-card reveal" data-category="residential" style="transition-delay:.1s" href="projects/afify-palace.html">
+      <img class="project-img" src="images/afify-palace.jpg" alt="Afify Palace — palatial residence" loading="lazy">
+      <div class="project-overlay"></div>
+      <div class="project-info">
+        <div class="project-category">Residential</div>
+        <div class="project-name">Afify Palace</div>
+        <div class="project-location">Hawaria, Egypt</div>
+        <div class="project-details">Grand palatial residence with classical proportions and ornate detailing.</div>
+      </div>
+    </a><a class="project-card reveal" data-category="commercial" style="transition-delay:.15s" href="projects/saint-cyril-medical.html">
+      <img class="project-img" src="images/saint-cyril-medical.jpg" alt="Saint Cyril Medical Center — exterior" loading="lazy">
+      <div class="project-overlay"></div>
+      <div class="project-info">
+        <div class="project-category">Commercial</div>
+        <div class="project-name">Saint Cyril Medical Center</div>
+        <div class="project-location">Alexandria, Egypt</div>
+        <div class="project-details">Modern medical facility designed for patient comfort and efficiency.</div>
+      </div>
+    </a><a class="project-card reveal" data-category="interior" style="transition-delay:.05s" href="projects/charles-apartment.html">
+      <img class="project-img" src="images/charles-apartment.jpg" alt="Charles Apartment — kitchen" loading="lazy">
+      <div class="project-overlay"></div>
+      <div class="project-info">
+        <div class="project-category">Interior</div>
+        <div class="project-name">Charles Apartment</div>
+        <div class="project-location">New Cairo, Egypt</div>
+        <div class="project-details">Modern apartment interior with refined material palette.</div>
+      </div>
+    </a><a class="project-card reveal" data-category="landscape" style="transition-delay:.1s" href="projects/zafer-landscape.html">
+      <img class="project-img" src="images/zafer-landscape.jpg" alt="Zafer Property Landscape — site plan" loading="lazy">
+      <div class="project-overlay"></div>
+      <div class="project-info">
+        <div class="project-category">Landscape</div>
+        <div class="project-name">Zafer Property Landscape</div>
+        <div class="project-location">Egypt</div>
+        <div class="project-details">Comprehensive landscape with pools, gardens, and artificial lake.</div>
+      </div>
+    </a><a class="project-card reveal" data-category="interior" style="transition-delay:.15s" href="projects/archangel-rafaael.html">
+      <img class="project-img" src="images/archangel-rafaael.jpg" alt="Archangel Rafaael Nursing Home — hall" loading="lazy">
+      <div class="project-overlay"></div>
+      <div class="project-info">
+        <div class="project-category">Interior</div>
+        <div class="project-name">Archangel Rafaael Nursing Home</div>
+        <div class="project-location">Agami, Egypt</div>
+        <div class="project-details">Ornate interior design balancing dignity with warmth.</div>
+      </div>
+    </a></div>
+</section>
+
+<section class="section" id="about">
+  <div class="about">
+    <div class="section-label reveal">The Studio</div>
+    <h2 class="section-title reveal">Built on the belief that<br>architecture is an act<br>of <em style="font-family:var(--serif);font-style:italic;color:var(--stone)">care</em></h2>
+    <div class="about-body reveal" style="transition-delay:.1s">
+      <p>Founded by Eng. Mina Kamal Isaac, Isaac Architects is an Alexandria-based practice dedicated to architecture that serves the people within it.</p>
+      <p>The firm has built a reputation for designs that balance classical sensibility with contemporary precision &mdash; work shaped by rigorous attention to context, proportion, and craft, that feels both inevitable and surprising.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark" id="approach">
+  <div style="max-width:1400px;margin:0 auto">
+    <div class="section-label reveal">Our Process</div>
+    <h2 class="section-title reveal" style="color:var(--paper);max-width:600px">
+      Three principles that<br>guide every project
+    </h2>
+  </div>
+  <div class="approach-grid">
+    <div class="approach-card reveal">
+      <div class="approach-num">01</div>
+      <h4>Listen First</h4>
+      <p>Before a single line is drawn, we listen. To the client's aspirations, the site's whisper, the community's rhythm. Understanding precedes imagination — always.</p>
+    </div>
+    <div class="approach-card reveal" style="transition-delay:.1s">
+      <div class="approach-num">02</div>
+      <h4>Design Whole</h4>
+      <p>Architecture is not decoration applied to structure. Every element — spatial, structural, material — is resolved as part of one coherent whole, from urban scale to door handle.</p>
+    </div>
+    <div class="approach-card reveal" style="transition-delay:.2s">
+      <div class="approach-num">03</div>
+      <h4>Build True</h4>
+      <p>The gap between render and reality is where trust lives. We stay through construction, solving problems in real-time, ensuring the built work honors the design promise.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="contact-section">
+    <div class="section-label reveal">Get in Touch</div>
+    <h2 class="section-title reveal">Let's build something<br>that matters</h2>
+    <div class="contact-grid reveal">
+      <p>Whether you're planning a private residence, a commercial development, or a community space, we'd welcome the conversation. Every project begins with a simple question: what do you need this place to do for you?</p>
+      <div class="contact-info">
+        <div class="contact-cell">
+          <div class="contact-cell-label">Email</div>
+          <div class="contact-cell-value"><a href="mailto:ideadesigns.arch@gmail.com">ideadesigns.arch@gmail.com</a></div>
+        </div>
+        <div class="contact-cell">
+          <div class="contact-cell-label">Phone</div>
+          <div class="contact-cell-value">
+            <a href="tel:+201274348575">+20 127 434 8575</a><br>
+            <a href="tel:+201203834437">+20 120 383 4437</a>
+          </div>
+        </div>
+        <div class="contact-cell">
+          <div class="contact-cell-label">Studio</div>
+          <div class="contact-cell-value">Alexandria, Egypt</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-left">
+    <div class="footer-logo">
+      <img src="brand/logo-lockup-dark.svg" alt="Isaac Architects" height="24">
+    </div>
+    <div class="footer-copy">&copy; 2024 Isaac Architects. All rights reserved.</div>
+  </div>
+  <div class="footer-right">
+    Founded by Eng. Mina Kamal Isaac &middot; Alexandria, Egypt
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>80)});
+
+const hamburger=document.getElementById('hamburger');
+const mobileMenu=document.getElementById('mobileMenu');
+hamburger.addEventListener('click',()=>{
+  hamburger.classList.toggle('active');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';
+});
+mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  hamburger.classList.remove('active');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow='';
+}));
+
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>observer.observe(el));
+
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f=btn.dataset.filter;
+    document.querySelectorAll('.project-card').forEach(card=>{
+      if(f==='all'||card.dataset.category===f){
+        card.style.display='';
+        requestAnimationFrame(()=>{
+          card.classList.remove('visible');
+          requestAnimationFrame(()=>card.classList.add('visible'));
+        });
+      }else{card.style.display='none'}
+    });
+  });
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+</script>
+</body>
+</html>
