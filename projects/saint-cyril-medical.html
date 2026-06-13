@@ -118,6 +118,23 @@ transition:transform .6s cubic-bezier(.4,0,.2,1)}
 .g-square{grid-column:span 6;aspect-ratio:1/1}
 .gallery-empty{padding:3rem;text-align:center;color:var(--warm-gray);font-style:italic;font-size:.95rem}
 
+.cta-band{background:var(--deep);color:var(--paper);padding:6rem 3rem;text-align:center}
+.cta-inner{max-width:680px;margin:0 auto}
+.cta-eyebrow{font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:var(--stone);margin-bottom:1.25rem}
+.cta-title{font-family:var(--serif);font-weight:300;font-size:clamp(1.8rem,3.5vw,2.8rem);
+line-height:1.15;margin-bottom:1rem;text-wrap:balance}
+.cta-text{font-weight:300;line-height:1.7;color:rgba(240,237,232,.6);margin:0 auto 2.5rem;max-width:480px;text-wrap:pretty}
+.cta-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.cta-call,.cta-wa{display:inline-flex;align-items:center;gap:.7rem;text-decoration:none;
+padding:1.1rem 2.2rem;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;
+font-weight:500;transition:background .3s,color .3s,border-color .3s;min-height:54px}
+.cta-call{background:var(--stone);color:var(--paper)}
+.cta-call:hover{background:var(--paper);color:var(--deep)}
+.cta-wa{background:transparent;color:var(--paper);border:1px solid rgba(240,237,232,.3)}
+.cta-wa:hover{border-color:var(--stone);background:rgba(139,115,85,.15)}
+.cta-call svg,.cta-wa svg{width:18px;height:18px;flex-shrink:0}
+.cta-phone{margin-top:1.25rem;font-size:.8rem;letter-spacing:.05em;color:rgba(240,237,232,.42)}
+
 .proj-nav{padding:4rem 3rem;background:var(--cloud);
 display:grid;grid-template-columns:1fr auto 1fr;gap:2rem;align-items:center;border-top:1px solid var(--light-gray)}
 .proj-nav a{text-decoration:none;color:var(--ink);transition:color .3s}
@@ -163,6 +180,9 @@ display:grid;grid-template-columns:1fr auto 1fr;gap:2rem;align-items:center;bord
   .gallery-grid .gtile{aspect-ratio:4/5}
   .g-full{grid-column:span 2;aspect-ratio:16/10}
   .g-major,.g-minor,.g-square{grid-column:span 1}
+  .cta-band{padding:4rem 1.25rem}
+  .cta-actions{flex-direction:column}
+  .cta-call,.cta-wa{width:100%;justify-content:center}
   .proj-nav{padding:2.5rem 1.25rem;grid-template-columns:1fr;text-align:center;gap:1.5rem}
   .proj-nav .prev,.proj-nav .next{justify-self:center;text-align:center}
   .proj-nav-name{font-size:1.1rem}
@@ -250,6 +270,25 @@ display:grid;grid-template-columns:1fr auto 1fr;gap:2rem;align-items:center;bord
 <figure class="gtile g-major reveal"><img src="../images/saint-cyril-medical-2.jpg" alt="alternate angle of medical centre tower" loading="lazy"></figure>
 <figure class="gtile g-minor reveal"><img src="../images/saint-cyril-medical-3.jpg" alt="ground floor plan" loading="lazy"></figure>
 </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="cta-inner">
+    <div class="cta-eyebrow reveal">Work with us</div>
+    <h2 class="cta-title reveal" style="transition-delay:.05s">Have a project in mind?</h2>
+    <p class="cta-text reveal" style="transition-delay:.1s">Tell us what you need the space to do. Every project we take on begins with a conversation.</p>
+    <div class="cta-actions reveal" style="transition-delay:.15s">
+      <a class="cta-call" href="tel:+201274348575">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg>
+        Call the studio
+      </a>
+      <a class="cta-wa" href="https://wa.me/201274348575?text=Hi%20Isaac%20Architects%2C%20I%27m%20interested%20in%20a%20project%20like%20Saint%20Cyril%20Medical%20Center." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+    <div class="cta-phone reveal" style="transition-delay:.2s">+20 127 434 8575</div>
   </div>
 </section>
 
