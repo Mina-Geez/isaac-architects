@@ -289,6 +289,10 @@ flex-direction:column;align-items:center;justify-content:center;gap:2rem}
 text-decoration:none;opacity:.7;transition:opacity .3s}
 .mobile-menu a:hover,.mobile-menu a:active{opacity:1}
 
+.reveal{opacity:0;transform:translateY(40px);
+transition:opacity .9s cubic-bezier(.4,0,.2,1),transform .9s cubic-bezier(.4,0,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
 .project-hero{position:relative;height:90vh;height:90svh;min-height:600px;background:var(--deep);overflow:hidden}
 .project-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85}
 .project-hero::after{content:'';position:absolute;inset:0;
@@ -409,6 +413,7 @@ display:grid;grid-template-columns:1fr auto 1fr;gap:2rem;align-items:center;bord
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
     transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .reveal{opacity:1!important;transform:none!important}
 }
 """
 
@@ -436,6 +441,11 @@ NAV_HTML = """
 MENU_SCRIPT = """
 <script>
 (function(){
+  var obs=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  });},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+
   var h=document.getElementById('hamburger'),m=document.getElementById('mobileMenu');
   if(!h||!m)return;
   h.addEventListener('click',function(){
@@ -491,7 +501,7 @@ def render_gallery(slug):
     shapes = gallery_shapes(len(items))
     out = ['<div class="gallery-grid">']
     for (fname, alt), shape in zip(items, shapes):
-        out.append(f'<figure class="gtile {shape}"><img src="../images/{fname}" alt="{escape(alt)}" loading="lazy"></figure>')
+        out.append(f'<figure class="gtile {shape} reveal"><img src="../images/{fname}" alt="{escape(alt)}" loading="lazy"></figure>')
     out.append('</div>')
     return "\n".join(out)
 
@@ -541,16 +551,16 @@ def render_page(p, prev_p, next_p):
 </header>
 
 <section class="meta-strip">
-  <div class="meta-cell"><div class="meta-label">Location</div><div class="meta-value">{escape(p['location'])}</div></div>
-  <div class="meta-cell"><div class="meta-label">Type</div><div class="meta-value">{escape(p['type'])}</div></div>
-  <div class="meta-cell"><div class="meta-label">Area</div><div class="meta-value">{escape(p['area'])}</div></div>
-  <div class="meta-cell"><div class="meta-label">Status</div><div class="meta-value">{escape(p['status'])}</div></div>
+  <div class="meta-cell reveal"><div class="meta-label">Location</div><div class="meta-value">{escape(p['location'])}</div></div>
+  <div class="meta-cell reveal" style="transition-delay:.08s"><div class="meta-label">Type</div><div class="meta-value">{escape(p['type'])}</div></div>
+  <div class="meta-cell reveal" style="transition-delay:.16s"><div class="meta-label">Area</div><div class="meta-value">{escape(p['area'])}</div></div>
+  <div class="meta-cell reveal" style="transition-delay:.24s"><div class="meta-label">Status</div><div class="meta-value">{escape(p['status'])}</div></div>
 </section>
 
 <section class="narrative">
   <div class="narrative-inner">
-    <div class="narrative-label">Project</div>
-    <div class="narrative-body">
+    <div class="narrative-label reveal">Project</div>
+    <div class="narrative-body reveal" style="transition-delay:.1s">
       <p class="lead">{escape(p['lead'])}</p>
       {body_html}
     </div>
@@ -559,12 +569,12 @@ def render_page(p, prev_p, next_p):
 
 <section class="gallery">
   <div class="gallery-inner">
-    <div class="gallery-label">Gallery</div>
+    <div class="gallery-label reveal">Gallery</div>
     {render_gallery(p['slug'])}
   </div>
 </section>
 
-<nav class="proj-nav">
+<nav class="proj-nav reveal">
   <a class="prev" href="{prev_p['slug']}.html">
     <div class="proj-nav-direction">&larr; Previous</div>
     <div class="proj-nav-name">{escape(prev_p['name'])}</div>
