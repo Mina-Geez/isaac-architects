@@ -328,12 +328,16 @@ line-height:1.3;margin-bottom:2rem;color:var(--paper)}
 .gallery-label{font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:var(--stone);
 display:flex;align-items:center;gap:1rem;margin-bottom:3rem}
 .gallery-label::before{content:'';width:40px;height:1px;background:var(--stone)}
-.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.gallery-grid .gtile{position:relative;overflow:hidden;background:var(--light-gray);aspect-ratio:4/3}
-.gallery-grid .gtile.wide{grid-column:span 2;aspect-ratio:8/5}
+.gallery-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem;align-items:start}
+.gallery-grid .gtile{position:relative;overflow:hidden;background:var(--light-gray)}
 .gallery-grid .gtile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
 transition:transform .6s cubic-bezier(.4,0,.2,1)}
 .gallery-grid .gtile:hover img{transform:scale(1.04)}
+/* editorial mosaic — full-width features, asymmetric pairs, square pairs */
+.g-full{grid-column:span 12;aspect-ratio:16/6}
+.g-major{grid-column:span 8;aspect-ratio:5/3}
+.g-minor{grid-column:span 4;aspect-ratio:5/6}
+.g-square{grid-column:span 6;aspect-ratio:1/1}
 .gallery-empty{padding:3rem;text-align:center;color:var(--warm-gray);font-style:italic;font-size:.95rem}
 
 .proj-nav{padding:4rem 3rem;background:var(--cloud);
@@ -355,8 +359,7 @@ display:grid;grid-template-columns:1fr auto 1fr;gap:2rem;align-items:center;bord
   .nav{padding:1rem 2rem}
   .narrative-inner{grid-template-columns:1fr;gap:2rem}
   .meta-strip{grid-template-columns:repeat(2,1fr);padding:2rem}
-  .gallery-grid{grid-template-columns:repeat(2,1fr)}
-  .gallery-grid .gtile.wide{grid-column:span 1;aspect-ratio:4/3}
+  .gallery-grid{gap:.85rem}
 }
 @media(max-width:768px){
   .nav{padding:.75rem max(1.25rem,env(safe-area-inset-right)) .75rem max(1.25rem,env(safe-area-inset-left))}
@@ -378,7 +381,10 @@ display:grid;grid-template-columns:1fr auto 1fr;gap:2rem;align-items:center;bord
   .narrative-body p{font-size:.95rem}
   .gallery{padding:3rem 1.25rem}
   .gallery-label{margin-bottom:2rem}
-  .gallery-grid{grid-template-columns:1fr;gap:1rem}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);gap:.6rem}
+  .gallery-grid .gtile{aspect-ratio:4/5}
+  .g-full{grid-column:span 2;aspect-ratio:16/10}
+  .g-major,.g-minor,.g-square{grid-column:span 1}
   .proj-nav{padding:2.5rem 1.25rem;grid-template-columns:1fr;text-align:center;gap:1.5rem}
   .proj-nav .prev,.proj-nav .next{justify-self:center;text-align:center}
   .proj-nav-name{font-size:1.1rem}
@@ -459,14 +465,33 @@ FOOTER_HTML = """
 """
 
 
+def gallery_shapes(n):
+    """Editorial mosaic rhythm: full-width opener, then alternating asymmetric
+    pairs (major+minor, sides swapping) and square pairs, with periodic
+    full-width breaks. Every row fills 12 cols (and pairs cleanly into 2 cols
+    on mobile); a leftover single tile becomes a full-width band."""
+    recipes = [["g-full"], ["g-major", "g-minor"], ["g-square", "g-square"], ["g-minor", "g-major"]]
+    shapes, i, r = [], 0, 0
+    while i < n:
+        recipe = recipes[r % len(recipes)]
+        if len(recipe) <= n - i:
+            shapes += recipe
+            i += len(recipe)
+        else:
+            shapes.append("g-full")  # lone trailing tile -> full-width band
+            i += 1
+        r += 1
+    return shapes
+
+
 def render_gallery(slug):
     items = GALLERIES.get(slug, [])
     if not items:
         return '<div class="gallery-empty">Additional project imagery coming soon.</div>'
+    shapes = gallery_shapes(len(items))
     out = ['<div class="gallery-grid">']
-    for i, (fname, alt) in enumerate(items):
-        cls = "gtile wide" if i % 5 == 0 else "gtile"
-        out.append(f'<figure class="{cls}"><img src="../images/{fname}" alt="{escape(alt)}" loading="lazy"></figure>')
+    for (fname, alt), shape in zip(items, shapes):
+        out.append(f'<figure class="gtile {shape}"><img src="../images/{fname}" alt="{escape(alt)}" loading="lazy"></figure>')
     out.append('</div>')
     return "\n".join(out)
 
