@@ -34,7 +34,9 @@
 }
 html{scroll-behavior:smooth;font-size:16px}
 body{font-family:var(--sans);color:var(--ink);background:var(--paper);
-overflow-x:hidden;-webkit-font-smoothing:antialiased}
+overflow-x:hidden;-webkit-font-smoothing:antialiased;
+-webkit-text-size-adjust:100%;text-size-adjust:100%;
+-webkit-tap-highlight-color:transparent}
 ::selection{background:var(--stone);color:var(--paper)}
 body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.025;
 background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
@@ -48,8 +50,20 @@ background:rgba(14,14,14,.92);backdrop-filter:blur(20px)}
 letter-spacing:.15em;text-transform:uppercase;color:var(--paper);
 text-decoration:none;opacity:.7;transition:opacity .3s}
 .nav-links a:hover{opacity:1}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:110;
+width:44px;height:44px;align-items:center;justify-content:center;margin-right:-10px;background:none;border:none}
+.hamburger span{display:block;width:24px;height:1.5px;background:var(--paper);transition:all .3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--deep);z-index:105;
+flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:var(--serif);font-size:2rem;font-weight:300;color:var(--paper);
+text-decoration:none;opacity:.7;transition:opacity .3s}
+.mobile-menu a:hover,.mobile-menu a:active{opacity:1}
 
-.project-hero{position:relative;height:90vh;min-height:600px;background:var(--deep);overflow:hidden}
+.project-hero{position:relative;height:90vh;height:90svh;min-height:600px;background:var(--deep);overflow:hidden}
 .project-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85}
 .project-hero::after{content:'';position:absolute;inset:0;
 background:linear-gradient(180deg,rgba(14,14,14,.4) 0%,transparent 30%,transparent 60%,rgba(14,14,14,.92) 100%)}
@@ -117,10 +131,11 @@ display:grid;grid-template-columns:1fr auto 1fr;gap:2rem;align-items:center;bord
   .gallery-grid .gtile.wide{grid-column:span 1;aspect-ratio:4/3}
 }
 @media(max-width:768px){
-  .nav{padding:.75rem 1.25rem}
+  .nav{padding:.75rem max(1.25rem,env(safe-area-inset-right)) .75rem max(1.25rem,env(safe-area-inset-left))}
   .nav-logo img{height:40px}
   .nav-links{display:none}
-  .project-hero{height:70vh;min-height:500px}
+  .hamburger{display:flex}
+  .project-hero{height:70vh;height:70svh;min-height:500px}
   .project-hero-content{padding:0 1.25rem 3rem}
   .back-link{margin-bottom:1.25rem;font-size:.65rem}
   .category-tag{margin-bottom:.75rem;font-size:.65rem}
@@ -144,6 +159,22 @@ display:grid;grid-template-columns:1fr auto 1fr;gap:2rem;align-items:center;bord
 }
 @media(max-width:480px){
   .project-hero{min-height:440px}
+  .project-hero h1{font-size:clamp(1.9rem,9vw,2.6rem)}
+  .narrative-body .lead{font-size:1.3rem}
+}
+
+/* Touch devices: disable decorative hover-zoom, add tap feedback */
+@media(hover:none){
+  .gallery-grid .gtile:hover img{transform:none}
+  .gallery-grid .gtile:active img{transform:scale(1.03)}
+  .mobile-menu a:active{color:var(--stone)}
+  .proj-nav a:active{color:var(--stone)}
+}
+
+/* Respect users who prefer reduced motion */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
+    transition-duration:.001ms!important;scroll-behavior:auto!important}
 }
 </style>
 </head>
@@ -158,7 +189,16 @@ display:grid;grid-template-columns:1fr auto 1fr;gap:2rem;align-items:center;bord
     <a href="../index.html#approach">Approach</a>
     <a href="../index.html#contact">Contact</a>
   </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="../index.html#work">Work</a>
+  <a href="../index.html#about">Studio</a>
+  <a href="../index.html#approach">Approach</a>
+  <a href="../index.html#contact">Contact</a>
+</div>
 
 
 <header class="project-hero">
@@ -223,6 +263,25 @@ display:grid;grid-template-columns:1fr auto 1fr;gap:2rem;align-items:center;bord
   <div class="footer-right">Founded by Eng. Mina Kamal Isaac &middot; Alexandria, Egypt</div>
 </footer>
 
+
+<script>
+(function(){
+  var h=document.getElementById('hamburger'),m=document.getElementById('mobileMenu');
+  if(!h||!m)return;
+  h.addEventListener('click',function(){
+    var open=m.classList.toggle('open');
+    h.classList.toggle('active',open);
+    h.setAttribute('aria-expanded',open?'true':'false');
+    document.body.style.overflow=open?'hidden':'';
+  });
+  m.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
+      m.classList.remove('open');h.classList.remove('active');
+      h.setAttribute('aria-expanded','false');document.body.style.overflow='';
+    });
+  });
+})();
+</script>
 
 </body>
 </html>

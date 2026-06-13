@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Isaac Architects — Alexandria, Egypt</title>
 <meta name="description" content="An Alexandria-based architecture studio. Residential, commercial, institutional, hospitality, cultural, interior, and landscape work across Egypt — built to hold up over time.">
 <link rel="canonical" href="https://mina-geez.github.io/isaac-architects/">
@@ -36,7 +36,9 @@
 }
 html{scroll-behavior:smooth;font-size:16px}
 body{font-family:var(--sans);color:var(--ink);background:var(--paper);
-overflow-x:hidden;-webkit-font-smoothing:antialiased}
+overflow-x:hidden;-webkit-font-smoothing:antialiased;
+-webkit-text-size-adjust:100%;text-size-adjust:100%;
+-webkit-tap-highlight-color:transparent}
 ::selection{background:var(--stone);color:var(--paper)}
 
 body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
@@ -56,7 +58,9 @@ text-decoration:none;opacity:.7;transition:opacity .3s}
 opacity:1!important;transition:all .3s}
 .nav-cta:hover{background:var(--paper);color:var(--deep)!important;border-color:var(--paper)}
 
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:110;padding:4px;background:none;border:none}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:110;
+width:44px;height:44px;align-items:center;justify-content:center;margin-right:-10px;
+background:none;border:none}
 .hamburger span{display:block;width:24px;height:1.5px;background:var(--paper);transition:all .3s}
 .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
 .hamburger.active span:nth-child(2){opacity:0}
@@ -69,7 +73,7 @@ flex-direction:column;align-items:center;justify-content:center;gap:2rem}
 color:var(--paper);text-decoration:none;opacity:.7;transition:opacity .3s}
 .mobile-menu a:hover{opacity:1}
 
-.hero{position:relative;height:100vh;min-height:700px;background:var(--deep);
+.hero{position:relative;height:100vh;height:100svh;min-height:700px;background:var(--deep);
 display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;
 background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(139,115,85,.08),transparent),
@@ -261,8 +265,8 @@ display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap
   .section{padding:6rem 2rem}
 }
 @media(max-width:768px){
-  .nav{padding:1rem 1.25rem}
-  .nav.scrolled{padding:.7rem 1.25rem}
+  .nav{padding:1rem max(1.25rem,env(safe-area-inset-right)) 1rem max(1.25rem,env(safe-area-inset-left))}
+  .nav.scrolled{padding:.7rem max(1.25rem,env(safe-area-inset-right)) .7rem max(1.25rem,env(safe-area-inset-left))}
   .nav-logo img{height:40px}
   .nav-links{display:none}
   .hamburger{display:flex}
@@ -286,7 +290,7 @@ display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap
   .project-name{font-size:1.25rem}
   .filter-bar{overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%;padding-bottom:.5rem;flex-wrap:nowrap;
     margin:0 -1.25rem;padding-left:1.25rem;padding-right:1.25rem}
-  .filter-btn{white-space:nowrap;flex-shrink:0;padding:.7rem 1.1rem;min-height:40px}
+  .filter-btn{white-space:nowrap;flex-shrink:0;padding:.7rem 1.1rem;min-height:44px;display:flex;align-items:center}
   .about-body p{font-size:1rem}
   .approach-card{padding:2rem 1.5rem}
   .contact-info{grid-template-columns:1fr;gap:1.5rem;text-align:center;margin-top:3rem;padding-top:2rem}
@@ -297,13 +301,34 @@ display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap
 }
 @media(max-width:480px){
   .hero-eyebrow{letter-spacing:.2em}
+  .hero-title{font-size:clamp(2.4rem,11vw,3rem)}
   .hero-scroll{display:none}
   .stat{padding:1.5rem}
+  .stat-number{font-size:2.4rem}
   .quote-mark{font-size:4.5rem}
   .quote-text{font-size:1.35rem;line-height:1.4}
   .project-badge{top:1rem;right:1rem;font-size:.55rem}
   .approach-num{font-size:2.25rem;margin-bottom:1rem}
   .approach-card h4{font-size:1.2rem}
+}
+
+/* Touch devices: no hover, so reveal card text by default and darken overlay for legibility */
+@media(hover:none){
+  .project-info{transform:none}
+  .project-details{max-height:none;opacity:1;margin-top:.5rem}
+  .project-overlay{background:linear-gradient(0deg,rgba(14,14,14,.92) 0%,rgba(14,14,14,.45) 55%,rgba(14,14,14,.05) 100%)}
+  .project-card:active{opacity:.94}
+  .filter-btn:active{background:rgba(139,115,85,.25);color:var(--paper)}
+  .nav-cta:active{background:var(--paper);color:var(--deep)!important}
+  .mobile-menu a:active{opacity:1;color:var(--stone)}
+}
+
+/* Respect users who prefer reduced motion */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
+    transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .reveal,.reveal-left,.reveal-right{opacity:1!important;transform:none!important}
+  .hero-eyebrow,.hero-title,.hero-sub,.hero-scroll{opacity:1!important;transform:none!important;animation:none!important}
 }
 </style>
 </head>
