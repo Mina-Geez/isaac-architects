@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://isaac-architects.pages.dev/sitemap.xml
+Sitemap: https://isaacarchitects.com/sitemap.xml
