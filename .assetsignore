@@ -1,0 +1,19 @@
+# Keep engine source / tooling out of the publicly-served assets.
+# (The published site is index.html, projects/, images/, static/, brand/,
+#  sitemap.xml, robots.txt, 404.html, .well-known/ — everything else is source.)
+content
+engine
+templates
+tests
+tools
+docs
+.claude
+.remember
+.git
+node_modules
+*.py
+*.md
+requirements.txt
+wrangler.jsonc
+.assetsignore
+.gitignore

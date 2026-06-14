@@ -1,0 +1,12 @@
+{
+  // Cloudflare Workers static-assets config for the isaac-architects Worker.
+  // The site is assets-only (no Worker script): the build writes HTML/assets to
+  // the repo root and Workers Builds deploys them on push to main.
+  "name": "isaac-architects",
+  "compatibility_date": "2026-06-14",
+  "assets": {
+    "directory": ".",
+    // Serve the branded 404.html for any path that doesn't map to an asset.
+    "not_found_handling": "404-page"
+  }
+}
