@@ -1,0 +1,16 @@
+canonical_base = "https://isaacarchitects.com"
+studio_name = "Isaac Architects"
+
+[seo]
+description = "An Alexandria architecture studio composing light, stone, and proportion into spaces that grow truer with age — residential, commercial, institutional, hospitality, cultural, interior, and landscape work across Egypt."
+og_description = "An architecture studio in Alexandria, composing light, stone, and proportion into spaces that grow truer with age."
+twitter_description = "An architecture studio in Alexandria — spaces composed to grow truer with age."
+
+[contact]
+phone_display = "+20 127 434 8575"
+phone_e164 = "+201274348575"
+phone2_display = "+20 120 383 4437"
+phone2_e164 = "+201203834437"
+whatsapp = "201274348575"
+email = "mina@isaacarchitects.com"
+location = "Alexandria, Egypt"

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page not found — Isaac Architects</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="/brand/logo-mark.svg">
+<meta name="theme-color" content="#0E0E0E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=DM+Sans:wght@0,300;0,400;0,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--ink:#1A1A1A;--paper:#FAFAF8;--stone:#8B7355;--warm-gray:#B5AFA6;--deep:#0E0E0E;
+--serif:'Cormorant Garamond',Georgia,serif;--sans:'DM Sans','Helvetica Neue',sans-serif}
+body{font-family:var(--sans);background:var(--deep);color:var(--paper);
+-webkit-font-smoothing:antialiased;min-height:100vh;min-height:100svh;
+display:flex;flex-direction:column;align-items:center;justify-content:center;
+text-align:center;padding:2rem;overflow:hidden;position:relative}
+/* faint architectural drawing grid, faded toward the edges */
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+background-image:repeating-linear-gradient(90deg,rgba(240,237,232,.05) 0 1px,transparent 1px 84px),
+repeating-linear-gradient(0deg,rgba(240,237,232,.05) 0 1px,transparent 1px 84px);
+-webkit-mask:radial-gradient(ellipse 72% 70% at 50% 46%,#000,transparent 75%);
+mask:radial-gradient(ellipse 72% 70% at 50% 46%,#000,transparent 75%);
+opacity:0;animation:fade 1.2s .15s both}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+background:radial-gradient(ellipse 60% 55% at 50% 42%,rgba(139,115,85,.12),transparent)}
+
+.nf{position:relative;z-index:1;max-width:600px}
+.nf-logo img{height:44px;margin-bottom:3.5rem;opacity:0;animation:up .8s .1s both}
+.nf-eyebrow{font-size:.68rem;letter-spacing:.32em;text-transform:uppercase;color:var(--warm-gray);
+margin-bottom:1.25rem;opacity:0;animation:up .8s .25s both}
+
+/* the "404" annotated like a dimension on a drawing */
+.nf-figure{position:relative;display:inline-block;margin-bottom:.5rem}
+.nf-code{font-family:var(--serif);font-weight:300;font-size:clamp(5.5rem,22vw,11rem);
+line-height:.92;color:var(--stone);letter-spacing:.04em;
+opacity:0;animation:up 1s .3s both}
+.nf-dim{position:relative;height:1px;background:rgba(139,115,85,.5);margin:.75rem auto 0;
+width:78%;transform:scaleX(0);transform-origin:center;animation:grow .9s .55s cubic-bezier(.4,0,.2,1) both}
+.nf-dim::before,.nf-dim::after{content:'';position:absolute;top:-5px;width:1px;height:11px;background:rgba(139,115,85,.5)}
+.nf-dim::before{left:0}.nf-dim::after{right:0}
+.nf-dim span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+background:var(--deep);padding:0 .6rem;font-size:.66rem;letter-spacing:.18em;
+text-transform:uppercase;color:var(--stone);white-space:nowrap}
+
+.nf-title{font-family:var(--serif);font-weight:300;font-style:italic;font-size:clamp(1.7rem,5vw,2.5rem);
+line-height:1.15;margin:2rem 0 1.1rem;text-wrap:balance;opacity:0;animation:up .8s .65s both}
+.nf-text{font-weight:300;line-height:1.7;color:rgba(240,237,232,.55);
+max-width:440px;margin:0 auto 2.5rem;text-wrap:pretty;opacity:0;animation:up .8s .78s both}
+.nf-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;opacity:0;animation:up .8s .9s both}
+.nf-btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;
+padding:1rem 2rem;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;
+font-weight:500;text-decoration:none;transition:all .3s;background:var(--stone);color:var(--paper)}
+.nf-btn:hover{background:var(--paper);color:var(--deep)}
+.nf-btn-ghost{background:transparent;color:var(--paper);border:1px solid rgba(240,237,232,.3)}
+.nf-btn-ghost:hover{background:rgba(139,115,85,.15);border-color:var(--stone);color:var(--paper)}
+
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes grow{to{transform:scaleX(1)}}
+@keyframes fade{to{opacity:1}}
+@media(max-width:520px){.nf-actions{flex-direction:column}.nf-btn{width:100%}}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important}
+  .nf-logo img,.nf-eyebrow,.nf-code,.nf-title,.nf-text,.nf-actions{opacity:1!important}
+  body::before{opacity:1!important}.nf-dim{transform:scaleX(1)!important}
+}
+</style>
+</head>
+<body>
+<main class="nf">
+  <a class="nf-logo" href="/"><img src="/brand/logo-lockup-dark.svg" alt="Isaac Architects"></a>
+  <div class="nf-eyebrow">Error 404 &middot; Page not found</div>
+  <div class="nf-figure">
+    <div class="nf-code">404</div>
+    <div class="nf-dim"><span>0 m&sup2; &middot; nothing built here</span></div>
+  </div>
+  <h1 class="nf-title">You've found an empty lot.</h1>
+  <p class="nf-text">This page was never drawn &mdash; or it has since moved on. Let's get you back to the work that stands.</p>
+  <div class="nf-actions">
+    <a class="nf-btn" href="/">Return home</a>
+    <a class="nf-btn nf-btn-ghost" href="/#work">View the work</a>
+  </div>
+</main>
+</body>
+</html>
