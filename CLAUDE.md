@@ -40,7 +40,7 @@ Before merging a content/template change, run the parity gate: `python tools/par
 - **Palette** (CSS vars, do not invent new ones):
   `--ink:#1A1A1A`, `--paper:#FAFAF8`, `--stone:#8B7355` (accent), `--warm-gray:#B5AFA6`, `--light-gray:#E8E5E0`, `--cloud:#F3F1ED`, `--deep:#0E0E0E`, `--slate:#4A4A48`.
 - **Typography**: Cormorant Garamond (serif headings) + DM Sans (body), both from Google Fonts.
-- **Contact info** (real, don't change): `ideadesigns.arch@gmail.com`, `+20 127 434 8575`, `+20 120 383 4437`.
+- **Contact info** (real): email `mina@isaacarchitects.com`, phones `+20 127 434 8575`, `+20 120 383 4437`. (Was `ideadesigns.arch@gmail.com` — switched to the on-domain address; ensure it receives via Cloudflare Email Routing.)
 
 ## Responsive breakpoints
 

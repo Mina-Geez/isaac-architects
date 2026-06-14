@@ -28,3 +28,8 @@ ehthumbs.db
 # Local
 *.log
 tools/_parity/
+
+# Windows + brand bundle cruft
+desktop.ini
+**/desktop.ini
+*.zip

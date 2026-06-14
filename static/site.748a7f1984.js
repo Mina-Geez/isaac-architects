@@ -86,7 +86,7 @@ if(enq){
     }else{
       const subject='Project enquiry from '+name;
       const body='Name: '+name+'\nContact: '+contact+'\nProject type: '+type+'\n\n'+msg;
-      window.location.href='mailto:ideadesigns.arch@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+      window.location.href='mailto:mina@isaacarchitects.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
       note.textContent='Opening your email app…';
     }
   });
