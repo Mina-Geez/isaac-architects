@@ -4,14 +4,16 @@ if(nav)window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',win
 const hamburger=document.getElementById('hamburger');
 const mobileMenu=document.getElementById('mobileMenu');
 const menuClose=document.getElementById('menuClose');
-function setMenu(open){
-  mobileMenu.classList.toggle('open',open);
-  document.body.style.overflow=open?'hidden':'';
-  hamburger.setAttribute('aria-expanded',open?'true':'false');
+if(hamburger&&mobileMenu){
+  const setMenu=open=>{
+    mobileMenu.classList.toggle('open',open);
+    document.body.style.overflow=open?'hidden':'';
+    hamburger.setAttribute('aria-expanded',open?'true':'false');
+  };
+  hamburger.addEventListener('click',()=>setMenu(true));
+  if(menuClose)menuClose.addEventListener('click',()=>setMenu(false));
+  mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
 }
-hamburger.addEventListener('click',()=>setMenu(true));
-if(menuClose)menuClose.addEventListener('click',()=>setMenu(false));
-mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
 
 const toTop=document.getElementById('toTop');
 if(toTop){

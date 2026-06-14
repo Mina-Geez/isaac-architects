@@ -17,13 +17,14 @@ def robots_txt(base: str) -> str:
     return f"User-agent: *\nAllow: /\n\nSitemap: {base}/sitemap.xml\n"
 
 
-def localbusiness_jsonld(base, name, phone, location) -> str:
+def localbusiness_jsonld(base, name, phone, location, description="") -> str:
+    locality = location.split(",")[0].strip() or "Alexandria"
     data = {"@context": "https://schema.org", "@type": "ProfessionalService",
             "name": name, "url": base + "/", "telephone": phone,
             "image": f"{base}/images/og-image.jpg",
-            "address": {"@type": "PostalAddress", "addressLocality": "Alexandria",
+            "address": {"@type": "PostalAddress", "addressLocality": locality,
                         "addressCountry": "EG"},
-            "areaServed": "EG", "description": location}
+            "areaServed": "EG", "description": description or location}
     return json.dumps(data, ensure_ascii=False)
 
 

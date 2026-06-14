@@ -43,8 +43,8 @@ docs/superpowers/  the design spec + plan
 
 ## Dependencies
 
-`Jinja2`, `Pillow` (+ `rcssmin`/`rjsmin` for the deferred minify step). Everything
-else is Python stdlib. No JS toolchain, no framework. See `requirements.txt`.
+`Jinja2` (templating) and `Pillow` (used by the `tools/` parity + crop scripts).
+Everything else is Python stdlib. No JS toolchain, no framework. See `requirements.txt`.
 
 ## Set the canonical domain
 
@@ -53,7 +53,8 @@ JSON-LD URL derives from it. Set it to the real domain before going live.
 
 ## Deferred (safe follow-ups)
 
-Verified incrementally after the parity-gated migration: responsive WebP images
-(`<picture>`/`srcset`), self-hosted fonts (then tighten the CSP to drop the Google
-Fonts origins), CSS/JS minification, and generic `content/pages/` rendering. See
-`docs/superpowers/specs/2026-06-14-content-engine-design.md`.
+Not yet built — to be added (and parity-verified) when needed: responsive WebP
+images (`<picture>`/`srcset`), self-hosted fonts (then tighten the CSP to drop the
+Google Fonts origins), CSS/JS minification, and generic `content/pages/` rendering.
+The earlier unused scaffolding for these was removed to keep the engine lean; see
+the design intent in `docs/superpowers/specs/2026-06-14-content-engine-design.md`.

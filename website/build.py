@@ -6,8 +6,7 @@ emits hashed CSS/JS, sitemap.xml, robots.txt, _headers, security.txt.
 Output is written to the repo root (deploy unchanged).
 """
 import datetime
-import hashlib
-import pathlib
+import re
 import shutil
 from urllib.parse import quote
 
@@ -38,6 +37,43 @@ def copy_images(project):
     shutil.copy2(project.dir / project.hero, paths.IMAGES_OUT / f"{project.slug}.jpg")
     for i, item in enumerate(project.gallery, start=1):
         shutil.copy2(project.dir / item.src, paths.IMAGES_OUT / f"{project.slug}-{i}.jpg")
+
+
+def prune_stale(keep_static, projects):
+    """Remove build artifacts that no longer match current content, so repeated
+    builds are idempotent and the served tree never accumulates orphans (old
+    hashed CSS/JS, pages for deleted projects, images for removed galleries)."""
+    removed = []
+    # Stale hashed CSS/JS — keep only this build's freshly-emitted files. Match
+    # only hashed output names (stem.<10hex>.ext); never the unhashed source
+    # files (home.css, site.js, …) that live in the same static/ directory.
+    hashed = re.compile(r".+\.[0-9a-f]{10}\.(css|js)$")
+    if paths.STATIC_OUT.exists():
+        for f in paths.STATIC_OUT.glob("*"):
+            if f.is_file() and hashed.match(f.name) and f.name not in keep_static:
+                f.unlink()
+                removed.append(f"static/{f.name}")
+    # Orphaned project pages.
+    slugs = {p.slug for p in projects}
+    proj_dir = ROOT / "projects"
+    if proj_dir.exists():
+        for f in proj_dir.glob("*.html"):
+            if f.stem not in slugs:
+                f.unlink()
+                removed.append(f"projects/{f.name}")
+    # Orphaned project images — keep og-image plus the current hero/gallery set.
+    keep_images = {"og-image.jpg"}
+    for p in projects:
+        keep_images.add(f"{p.slug}.jpg")
+        for i in range(1, len(p.gallery) + 1):
+            keep_images.add(f"{p.slug}-{i}.jpg")
+    if paths.IMAGES_OUT.exists():
+        for f in paths.IMAGES_OUT.glob("*"):
+            if (f.is_file() and f.suffix.lower() in (".jpg", ".jpeg", ".png", ".webp")
+                    and f.name not in keep_images):
+                f.unlink()
+                removed.append(f"images/{f.name}")
+    return removed
 
 
 def copy_brand():
@@ -100,7 +136,8 @@ def main():
         contact=contact,
         css_href=css_home, js_href=js,
         jsonld=localbusiness_jsonld(base, s["studio_name"],
-                                    contact["phone_e164"], contact["location"]),
+                                    contact["phone_e164"], contact["location"],
+                                    seo.get("description", "")),
     )
     (ROOT / "index.html").write_text(home_html, encoding="utf-8")
 
@@ -116,6 +153,11 @@ def main():
     wk = ROOT / ".well-known"
     wk.mkdir(exist_ok=True)
     (wk / "security.txt").write_text(security_txt(contact["email"]), encoding="utf-8")
+
+    # ---- prune stale artifacts (idempotent build) ----
+    removed = prune_stale({css_home, css_proj, js}, projects)
+    if removed:
+        print(f"  pruned {len(removed)} stale file(s): {', '.join(removed)}")
 
     print(f"Built home + {n} project pages.")
     print(f"  css: {css_home}, {css_proj} | js: {js}")
