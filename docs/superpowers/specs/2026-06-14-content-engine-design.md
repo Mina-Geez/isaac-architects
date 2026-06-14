@@ -28,6 +28,8 @@ HTML, push, Cloudflare serves it.
 - Support new content types later (journal, team) by adding a template + content folder.
 - Generate `sitemap.xml`, `robots.txt`, and JSON-LD on every build.
 - Single source of truth for the canonical domain.
+- Emit a **security layer** (HTTP security headers + a strict CSP) on every build.
+- Emit a **performance layer** (image optimization, self-hosted fonts, hashed cacheable assets).
 - Preserve the existing visual design **exactly** (byte-for-byte parity at migration).
 
 ### Non-goals (YAGNI)
@@ -141,7 +143,8 @@ Pipeline (pure functions, each independently testable):
    sort by `order`. Fail on duplicate slug or missing required field/image.
 3. **Process images**: for each project, copy/resize from the project folder to the public
    `images/` path, preserving today's URL scheme so no links change — hero → `images/<slug>.jpg`,
-   gallery → `images/<slug>-N.jpg` (Pillow; same quality/max-width 1400 as today).
+   gallery → `images/<slug>-N.jpg` (Pillow; same quality/max-width 1400 as today). Also emit
+   **WebP + responsive widths** per §6B.
 4. **Render** via Jinja2:
    - `home.html` ← settings + project list (the grid, with the existing 2-col/feature rhythm).
    - `project.html` ← each project (hero, meta, narrative, editorial gallery mosaic, CTA band,
@@ -151,6 +154,9 @@ Pipeline (pure functions, each independently testable):
    Twitter, JSON-LD) — all from `canonical_base`.
 6. **Write** output to repo root (`index.html`, `projects/*.html`, `images/*`, `sitemap.xml`,
    `robots.txt`). `brand/` is static, untouched.
+7. **Security & performance assets** (§6A / §6B): minify + content-hash CSS/JS to
+   `static/site.<hash>.css|js`, copy vendored fonts, and write `_headers` and
+   `.well-known/security.txt`. Templates reference the hashed assets and self-hosted fonts.
 
 Templates live in `templates/` with partials `_head.html`, `_nav.html`, `_footer.html`,
 `_scripts.html`. The current CSS is preserved verbatim in `static/site.css` and linked (or
@@ -168,20 +174,68 @@ inlined via a partial to keep the single-file feel — decided at implementation
   - Project: `CreativeWork` — name, `image` (hero, absolute URL), description (lead), `locationCreated`.
 - Per-page unique `<title>` + meta description from content (no change in voice).
 
+## 6A. Security layer (build-emitted)
+
+The build emits a **`_headers`** file (Cloudflare Pages / Workers Static Assets) carrying:
+- **`Content-Security-Policy`**: `default-src 'self'; img-src 'self' data:; style-src 'self'
+  'unsafe-inline'; script-src 'self'; font-src 'self'; connect-src 'self'; form-action 'self';
+  frame-ancestors 'none'; base-uri 'self'; upgrade-insecure-requests`.
+- `Strict-Transport-Security: max-age=63072000; includeSubDomains; preload`
+- `X-Content-Type-Options: nosniff`
+- `Referrer-Policy: strict-origin-when-cross-origin`
+- `Permissions-Policy: geolocation=(), microphone=(), camera=(), browsing-topics=()`
+- `X-Frame-Options: DENY`
+
+Enabling that strict CSP requires two structural moves (both also benefit perf/parity):
+- **Externalize JS** — move the inline `<script>` blocks into `static/site.js`, so
+  `script-src 'self'` holds without `'unsafe-inline'` (the most valuable CSP control). Inline
+  styles remain and are covered by `style-src 'unsafe-inline'` (styles can't exfiltrate data).
+- **Self-host fonts** (see §6B) — removes `fonts.googleapis.com`/`gstatic.com` from the page and
+  the CSP, shrinking the third-party trust surface.
+
+Notes: the repo is public, so source files are not secrets — this layer protects *visitors*
+(clickjacking, MIME-sniffing, mixed content, referrer leakage). If the site is served by a
+classic Worker rather than Pages/Static-Assets, the identical header set is applied in the
+Worker; documented in `README.md`. A `/.well-known/security.txt` with a contact is emitted too.
+
+## 6B. Performance layer (build-emitted)
+
+- **Images** — for each image emit a **WebP** beside the JPEG plus responsive widths
+  (480 / 960 / 1400). Templates use `<picture>` (WebP `source` + JPEG fallback) with
+  `srcset`/`sizes`; `loading="lazy"` and `decoding="async"` retained. Pillow does WebP natively
+  (no new dep). Renders identically → parity preserved. Hero/LCP image gets `fetchpriority="high"`
+  and is not lazy-loaded.
+- **Self-hosted fonts** — vendor the Cormorant Garamond + DM Sans `woff2` files into
+  `static/fonts/` (fetched once with a `tools/` helper, then committed → the build stays offline
+  and deterministic). Served from origin with `font-display: swap` and `<link rel=preload>` for
+  the critical weights.
+- **Content-hashed assets** — `site.<hash>.css` / `site.<hash>.js`; the build rewrites references
+  so they can be cached immutably.
+- **Caching via `_headers`** — `Cache-Control: public, max-age=31536000, immutable` for
+  `/static/*`, fonts, and the hashed image variants; short/revalidate for HTML so edits appear
+  immediately. Cloudflare already applies Brotli to text, so the layer prioritizes images, fonts,
+  and caching; CSS/JS get a light, safe minify pass (conservative, no risky transforms).
+
 ## 7. File organization (final)
 
 ```
 content/            # CMS — the only thing you edit
 templates/          # Jinja2 templates + partials
-static/             # site.css (preserved), any static assets
+static/
+  site.css          # your exact CSS (preserved); build emits a hashed copy
+  site.js           # JS extracted from inline scripts (enables strict CSP)
+  fonts/            # vendored woff2 (self-hosted Cormorant Garamond + DM Sans)
 build.py            # the engine
 requirements.txt    # jinja2, pillow (pinned majors)
 README.md           # how the engine + commands work
-tools/              # crop_project_images.py, one-time importer (off the build path)
+tools/              # crop_project_images.py, importer, font-fetch (off the build path)
 docs/superpowers/specs/   # this spec
 .claude/commands/   # /add-project, /edit-project, /new-page, /publish
-# committed build output, served by Cloudflare (unchanged deploy):
-index.html  projects/*.html  images/*  brand/*  sitemap.xml  robots.txt
+# committed build output, served by Cloudflare (deploy unchanged):
+index.html  projects/*.html
+images/*.jpg  images/*.webp                 # responsive widths + modern format
+static/site.<hash>.css  static/site.<hash>.js  static/fonts/*
+brand/*  sitemap.xml  robots.txt  _headers  .well-known/security.txt
 ```
 
 ## 8. Claude Code interface (the "CMS")
@@ -213,16 +267,25 @@ requests; Claude edits the content file and rebuilds. No command required.
 
 ## 10. Dependencies
 
-`requirements.txt`: `Jinja2` (pinned to a major), `Pillow` (already used). Stdlib: `tomllib`,
-`pathlib`, `html`, `xml.etree`, `urllib.parse`. No JS toolchain.
+`requirements.txt`: `Jinja2` (pinned to a major), `Pillow` (already used — covers WebP natively).
+Stdlib: `tomllib`, `pathlib`, `html`, `hashlib`, `xml.etree`, `urllib.parse`. CSS/JS minify uses a
+small single-file lib (`rcssmin`/`rjsmin`) or a conservative built-in — no risky transforms. Fonts
+are **vendored** (fetched once via a `tools/` helper, then committed), so the build needs no
+network and stays deterministic. No JS toolchain.
 
 ## 11. Testing & verification
 
 - **Content validation** is part of the build (unit-testable pure validators).
 - **Visual parity**: Playwright screenshot diff of home + sample projects (mobile + desktop)
-  pre/post migration; must match.
+  pre/post migration; must match (WebP/srcset/self-hosted fonts must render identically).
 - **Smoke**: assert `sitemap.xml` lists all non-draft pages; canonical URLs use `canonical_base`;
   no broken image refs; build is idempotent (run twice → no diff).
+- **Security**: assert `_headers` carries CSP, HSTS, `nosniff`, `Referrer-Policy`,
+  `Permissions-Policy`, `frame-ancestors 'none'`; assert no inline `<script>` remains (CSP holds);
+  assert no third-party origins in markup (fonts self-hosted).
+- **Performance**: assert every `<img>` has a `<picture>`/WebP + `srcset` and lazy/eager is
+  correct (hero eager); assert hashed asset filenames + immutable cache rules; a Lighthouse
+  (or PageSpeed) sanity pass on home + a project page.
 
 ## 12. Open items
 
