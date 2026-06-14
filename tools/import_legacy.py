@@ -27,7 +27,7 @@ FEATURED = {"vidorra-commercial-centre", "sea-star-convention", "sandy-wedding-h
 
 
 def extract_projects():
-    text = (ROOT / "generate_project_pages.py").read_text(encoding="utf-8")
+    text = (ROOT / "tools" / "_legacy" / "generate_project_pages.py").read_text(encoding="utf-8")
     start = text.index("PROJECTS = [")
     end = text.index("\n]", start) + 2
     ns = {}
@@ -41,7 +41,7 @@ def toml_str(s):
 
 def main():
     projects = {p["slug"]: p for p in extract_projects()}
-    gallery_data = json.loads((ROOT / "gallery_data.json").read_text(encoding="utf-8"))
+    gallery_data = json.loads((ROOT / "tools" / "_legacy" / "gallery_data.json").read_text(encoding="utf-8"))
     OUT.mkdir(parents=True, exist_ok=True)
 
     for slug in HOME_ORDER:
