@@ -31,5 +31,5 @@ def creativework_jsonld(base, project) -> str:
     data = {"@context": "https://schema.org", "@type": "CreativeWork",
             "name": project.name, "image": f"{base}/images/{project.slug}.jpg",
             "description": project.lead, "locationCreated": project.location,
-            "url": f"{base}/projects/{project.slug}.html"}
+            "url": f"{base}/projects/{project.slug}"}
     return json.dumps(data, ensure_ascii=False)

@@ -30,12 +30,12 @@
 <body>
 
 <nav class="nav">
-  <a class="nav-logo" href="{{ prefix }}index.html"><img src="{{ prefix }}brand/logo-lockup-dark.svg" alt="Isaac Architects"></a>
+  <a class="nav-logo" href="{{ prefix }}"><img src="{{ prefix }}brand/logo-lockup-dark.svg" alt="Isaac Architects"></a>
   <div class="nav-links">
-    <a href="{{ prefix }}index.html#work">Work</a>
-    <a href="{{ prefix }}index.html#about">Studio</a>
-    <a href="{{ prefix }}index.html#approach">Approach</a>
-    <a href="{{ prefix }}index.html#contact">Contact</a>
+    <a href="{{ prefix }}#work">Work</a>
+    <a href="{{ prefix }}#about">Studio</a>
+    <a href="{{ prefix }}#approach">Approach</a>
+    <a href="{{ prefix }}#contact">Contact</a>
   </div>
   <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -46,10 +46,10 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
   </button>
   <nav class="menu-links">
-    <a class="menu-link" href="{{ prefix }}index.html#work">Work</a>
-    <a class="menu-link" href="{{ prefix }}index.html#about">Studio</a>
-    <a class="menu-link" href="{{ prefix }}index.html#approach">Approach</a>
-    <a class="menu-link" href="{{ prefix }}index.html#contact">Contact</a>
+    <a class="menu-link" href="{{ prefix }}#work">Work</a>
+    <a class="menu-link" href="{{ prefix }}#about">Studio</a>
+    <a class="menu-link" href="{{ prefix }}#approach">Approach</a>
+    <a class="menu-link" href="{{ prefix }}#contact">Contact</a>
   </nav>
   <div class="menu-cta">
     <a class="cta-call" href="tel:{{ contact.phone_e164 }}">
@@ -69,7 +69,7 @@
 <header class="project-hero">
   <img src="{{ prefix }}images/{{ project.slug }}.jpg" alt="{{ project.name }}">
   <div class="project-hero-content">
-    <div class="back-link"><a href="{{ prefix }}index.html#work">&larr; All Projects</a></div>
+    <div class="back-link"><a href="{{ prefix }}#work">&larr; All Projects</a></div>
     <div class="category-tag">{{ project.category }}</div>
     <h1>{{ project.name }}</h1>
     <div class="subtitle">{{ project.location }}</div>
@@ -128,12 +128,12 @@
 </section>
 
 <nav class="proj-nav reveal">
-  <a class="prev" href="{{ prev.slug }}.html">
+  <a class="prev" href="{{ prev.slug }}">
     <div class="proj-nav-direction">&larr; Previous</div>
     <div class="proj-nav-name">{{ prev.name }}</div>
   </a>
-  <a class="all" href="{{ prefix }}index.html#work">All Projects</a>
-  <a class="next" href="{{ next.slug }}.html">
+  <a class="all" href="{{ prefix }}#work">All Projects</a>
+  <a class="next" href="{{ next.slug }}">
     <div class="proj-nav-direction">Next &rarr;</div>
     <div class="proj-nav-name">{{ next.name }}</div>
   </a>

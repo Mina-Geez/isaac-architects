@@ -138,7 +138,7 @@
 
   <div class="projects-grid" id="projectsGrid">
 {% for p in projects %}
-    <a class="project-card{% if p.featured %} wide{% endif %} reveal" data-category="{{ p.category|lower }}" href="{{ prefix }}projects/{{ p.slug }}.html">
+    <a class="project-card{% if p.featured %} wide{% endif %} reveal" data-category="{{ p.category|lower }}" href="{{ prefix }}projects/{{ p.slug }}">
       <img class="project-img" src="{{ prefix }}images/{{ p.slug }}.jpg" alt="{{ p.name }}" loading="lazy">
       <div class="project-overlay"></div>
 {% if p.status == 'Built' %}      <span class="project-badge">Built</span>

@@ -63,7 +63,7 @@ def main():
         html = env.get_template("project.html").render(
             prefix="../",
             project=p, prev=prev_p, next=next_p,
-            canonical=f"{base}/projects/{p.slug}.html",
+            canonical=f"{base}/projects/{p.slug}",
             og_image=f"{base}/images/{p.slug}.jpg",
             contact=contact,
             wa_href=f"https://wa.me/{contact['whatsapp']}?text={wa_text}",
@@ -91,7 +91,7 @@ def main():
     (ROOT / "index.html").write_text(home_html, encoding="utf-8")
 
     # ---- SEO + security artifacts ----
-    sitemap_paths = [""] + [f"projects/{p.slug}.html" for p in projects]
+    sitemap_paths = [""] + [f"projects/{p.slug}" for p in projects]
     (ROOT / "sitemap.xml").write_text(sitemap_xml(base, sitemap_paths, lastmod), encoding="utf-8")
     (ROOT / "robots.txt").write_text(robots_txt(base), encoding="utf-8")
     (ROOT / "_headers").write_text(headers_file(), encoding="utf-8")
