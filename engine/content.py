@@ -30,6 +30,7 @@ class Project:
     hero: str
     order: int
     draft: bool
+    featured: bool
     body_html: str
     gallery: list
     dir: pathlib.Path
@@ -58,6 +59,7 @@ def load_project(folder: pathlib.Path) -> Project:
         category=meta["category"], type=meta["type"], area=meta.get("area", "—"),
         status=meta["status"], lead=meta["lead"], hero=hero,
         order=int(meta.get("order", 999)), draft=bool(meta.get("draft", False)),
+        featured=bool(meta.get("featured", False)),
         body_html=render_paragraphs(body), gallery=gallery, dir=folder)
 
 

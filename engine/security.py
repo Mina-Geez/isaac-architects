@@ -1,5 +1,9 @@
-CSP = ("default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; "
-       "script-src 'self'; font-src 'self'; connect-src 'self'; form-action 'self'; "
+# NOTE: Google Fonts origins are allowed until fonts are self-hosted (perf/security
+# follow-up). Once self-hosted, drop the two https://fonts.* and tighten to 'self'.
+CSP = ("default-src 'self'; img-src 'self' data:; "
+       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
+       "script-src 'self'; font-src 'self' https://fonts.gstatic.com; "
+       "connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; "
        "frame-ancestors 'none'; base-uri 'self'; upgrade-insecure-requests")
 
 
