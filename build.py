@@ -90,6 +90,10 @@ def main():
     )
     (ROOT / "index.html").write_text(home_html, encoding="utf-8")
 
+    # ---- 404 (Cloudflare serves /404.html for any not-found path) ----
+    (ROOT / "404.html").write_text(
+        env.get_template("404.html").render(), encoding="utf-8")
+
     # ---- SEO + security artifacts ----
     sitemap_paths = [""] + [f"projects/{p.slug}" for p in projects]
     (ROOT / "sitemap.xml").write_text(sitemap_xml(base, sitemap_paths, lastmod), encoding="utf-8")
