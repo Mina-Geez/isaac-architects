@@ -33,3 +33,6 @@ website/tools/_parity/
 desktop.ini
 **/desktop.ini
 *.zip
+
+# generated proposal exports (regenerate from the .html)
+proposals/**/*.pdf
