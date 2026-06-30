@@ -1,0 +1,44 @@
+/* Isaac Architects — self-hosted brand fonts (woff2)
+ *
+ * Latin:  Cormorant Garamond (display/serif) + DM Sans (body/sans)
+ * Arabic: Noto Naskh Arabic (display/serif)  + Noto Sans Arabic (body/sans)
+ *
+ * This is the PRIMARY way to load the brand fonts — it renders identically
+ * offline and exports reliably to PDF (no dependency on Google's servers).
+ * Drop this file + the .woff2 files next to your HTML and link it:
+ *     <link rel="stylesheet" href="fonts/fonts.css">
+ *
+ * Bilingual font stacks (Latin first, Arabic as automatic fallback for
+ * glyphs the Latin face lacks — works in both LTR and RTL):
+ *     --serif: 'Cormorant Garamond', 'Noto Naskh Arabic', Georgia, serif;
+ *     --sans:  'DM Sans', 'Noto Sans Arabic', 'Helvetica Neue', sans-serif;
+ *
+ * All four families are licensed under the SIL Open Font License 1.1.
+ * See licenses/ for the full text and copyright notices.
+ */
+
+/* ── Cormorant Garamond — Latin display/serif ───────────────────────── */
+@font-face { font-family:'Cormorant Garamond'; font-style:normal; font-weight:300; font-display:swap; src:url('cormorant-garamond-300.woff2') format('woff2'); }
+@font-face { font-family:'Cormorant Garamond'; font-style:italic; font-weight:300; font-display:swap; src:url('cormorant-garamond-300italic.woff2') format('woff2'); }
+@font-face { font-family:'Cormorant Garamond'; font-style:normal; font-weight:400; font-display:swap; src:url('cormorant-garamond-400.woff2') format('woff2'); }
+@font-face { font-family:'Cormorant Garamond'; font-style:italic; font-weight:400; font-display:swap; src:url('cormorant-garamond-400italic.woff2') format('woff2'); }
+@font-face { font-family:'Cormorant Garamond'; font-style:normal; font-weight:500; font-display:swap; src:url('cormorant-garamond-500.woff2') format('woff2'); }
+@font-face { font-family:'Cormorant Garamond'; font-style:normal; font-weight:600; font-display:swap; src:url('cormorant-garamond-600.woff2') format('woff2'); }
+
+/* ── DM Sans — Latin body/sans ──────────────────────────────────────── */
+@font-face { font-family:'DM Sans'; font-style:normal; font-weight:200; font-display:swap; src:url('dm-sans-200.woff2') format('woff2'); }
+@font-face { font-family:'DM Sans'; font-style:normal; font-weight:300; font-display:swap; src:url('dm-sans-300.woff2') format('woff2'); }
+@font-face { font-family:'DM Sans'; font-style:italic; font-weight:300; font-display:swap; src:url('dm-sans-300italic.woff2') format('woff2'); }
+@font-face { font-family:'DM Sans'; font-style:normal; font-weight:400; font-display:swap; src:url('dm-sans-400.woff2') format('woff2'); }
+@font-face { font-family:'DM Sans'; font-style:normal; font-weight:500; font-display:swap; src:url('dm-sans-500.woff2') format('woff2'); }
+
+/* ── Noto Naskh Arabic — Arabic display/serif (partners Cormorant) ──── */
+@font-face { font-family:'Noto Naskh Arabic'; font-style:normal; font-weight:400; font-display:swap; src:url('noto-naskh-arabic-400.woff2') format('woff2'); }
+@font-face { font-family:'Noto Naskh Arabic'; font-style:normal; font-weight:500; font-display:swap; src:url('noto-naskh-arabic-500.woff2') format('woff2'); }
+@font-face { font-family:'Noto Naskh Arabic'; font-style:normal; font-weight:600; font-display:swap; src:url('noto-naskh-arabic-600.woff2') format('woff2'); }
+
+/* ── Noto Sans Arabic — Arabic body/sans (partners DM Sans) ─────────── */
+@font-face { font-family:'Noto Sans Arabic'; font-style:normal; font-weight:200; font-display:swap; src:url('noto-sans-arabic-200.woff2') format('woff2'); }
+@font-face { font-family:'Noto Sans Arabic'; font-style:normal; font-weight:300; font-display:swap; src:url('noto-sans-arabic-300.woff2') format('woff2'); }
+@font-face { font-family:'Noto Sans Arabic'; font-style:normal; font-weight:400; font-display:swap; src:url('noto-sans-arabic-400.woff2') format('woff2'); }
+@font-face { font-family:'Noto Sans Arabic'; font-style:normal; font-weight:500; font-display:swap; src:url('noto-sans-arabic-500.woff2') format('woff2'); }

@@ -54,6 +54,20 @@ Cormorant Garamond is used for the **declarative** voice — page titles, statem
 
 ---
 
+## Why Noto for Arabic
+
+The practice is in Alexandria; Arabic is not a localization layer bolted on later — it is half the brand. The Arabic faces were chosen to *partner* the Latin pair, not to imitate it.
+
+**Noto Naskh Arabic** carries the headings. Naskh is the manuscript and book hand of Arabic — high legibility, classical authority, the script equivalent of a Garamond. Pairing it with Cormorant Garamond means both scripts speak in the same editorial register: considered, literary, unhurried.
+
+**Noto Sans Arabic** carries the body, beside DM Sans. It is even, modern, and quiet — it does the same job DM Sans does in Latin: disappear so the content reads.
+
+Noto specifically — over more expressive families like Amiri or a geometric display Arabic — for one reason that is the whole brand in miniature: **neutrality**. The signature is the only thing in this identity allowed to have a personality. A characterful Arabic display face would compete with it. Noto's restraint is a feature, not a compromise.
+
+Two disciplines protect the Arabic from looking like an automated translation: Arabic is **never letter-spaced** (the brand's signature Latin move — wide tracking on uppercase labels — would shatter the cursive joins), and the **"ARCHITECTS" tagline is never translated** (it belongs to the logo lockup as an image). Where Latin differentiates with tracking, Arabic differentiates with weight and the Stone accent. Same restraint, different grammar.
+
+---
+
 ## The Hairline Rule Decision
 
 The rule between the signature and the tagline went through six iterations:

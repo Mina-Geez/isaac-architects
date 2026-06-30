@@ -1,6 +1,6 @@
 ---
 name: isaac-architects-brand-guidelines
-description: Applies the official Isaac Architects brand identity — calligraphic signature mark, restrained palette, Cormorant Garamond + DM Sans typography, hairline rule treatments, and editorial voice — to any artifact, document, presentation, proposal, email, HTML page, React component, or visual output. Use this skill whenever creating or styling ANY visual deliverable for Isaac Architects including portfolio pages, proposals, presentations, websites, landing pages, email signatures, social media assets, documents, business cards, letterheads, signage mockups, or any output that should carry the Isaac Architects look-and-feel. Also trigger when mentions of "Isaac", "Isaac Architects", "Isaac brand", "Isaac style", "the architect's brand", "the firm's identity", "@isaac_architects", or similar references occur. The brand is built around restraint, material honesty, and the signature as the central mark — every output must respect that hierarchy.
+description: Applies the official Isaac Architects brand identity — calligraphic signature mark, restrained palette, bilingual typography (Cormorant Garamond + DM Sans for Latin, Noto Naskh Arabic + Noto Sans Arabic for Arabic, self-hosted as woff2), hairline rule treatments, and editorial voice — to any artifact, document, presentation, proposal, email, HTML page, React component, or visual output. Use this skill whenever creating or styling ANY visual deliverable for Isaac Architects including portfolio pages, proposals, presentations, websites, landing pages, email signatures, social media assets, documents, business cards, letterheads, signage mockups, or any output that should carry the Isaac Architects look-and-feel. Also trigger when mentions of "Isaac", "Isaac Architects", "Isaac brand", "Isaac style", "the architect's brand", "the firm's identity", "@isaac_architects", or similar references occur. The brand is built around restraint, material honesty, and the signature as the central mark — every output must respect that hierarchy.
 ---
 
 # Isaac Architects — Brand Identity System
@@ -125,7 +125,17 @@ Stone is used sparingly — for section numbers, small detail elements, and acce
 
 ## Typography
 
-Two typefaces, distinct roles. They never compete. The logo is an image mark, not a typeface — never typeset "Isaac" in any font as a substitute for the SVG mark.
+Four typefaces across two scripts, in two roles. **Latin:** Cormorant Garamond (display) + DM Sans (body). **Arabic:** Noto Naskh Arabic (display) + Noto Sans Arabic (body). Within each script the display and body faces never compete; across scripts the pairs mirror each other — an editorial serif for headings, a clean sans for everything else. The logo is an image mark, not a typeface — never typeset "Isaac" in any font as a substitute for the SVG mark.
+
+### Loading the Fonts — self-hosted (primary)
+
+The brand fonts ship **self-hosted** with this skill in `fonts/` (woff2). This is the primary method: it renders identically offline and **exports reliably to PDF** — no dependency on Google's servers (which is exactly where CDN-linked fonts silently drop to Times/Arial during PDF export). Load all four families with one line:
+
+```html
+<link rel="stylesheet" href="fonts/fonts.css">
+```
+
+The Google Fonts `<link>` snippets below are a **fallback** for throwaway online prototypes only. For anything exported to PDF or sent to a client, use the self-hosted files.
 
 ### Display — Cormorant Garamond
 
@@ -136,7 +146,7 @@ Used for: page titles, section headlines, editorial pull quotes, philosophical s
 - **Default weight**: 300
 - **Line height**: 1.2–1.35
 
-**Google Fonts import**:
+**Google Fonts (fallback only)**:
 ```html
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
 ```
@@ -156,7 +166,7 @@ Used for: body copy, navigation, metadata, captions, taglines, all interface tex
 - **Default weight**: 300
 - **Line height**: 1.7–1.9 for body, 1.0 for tags/labels
 
-**Google Fonts import**:
+**Google Fonts (fallback only)**:
 ```html
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,200;0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 ```
@@ -168,13 +178,54 @@ Used for: body copy, navigation, metadata, captions, taglines, all interface tex
 - Section numbers ("01 — Logo System"): 10px / weight 400 / letter-spacing 5px / uppercase / Stone color
 - Small metadata: 9–10px / weight 400 / letter-spacing 2–4px / uppercase / Warm Gray color
 
-### Combined Font Import (Recommended)
+### Combined Google Fonts Import (fallback — all four families)
+
+Prefer the self-hosted `fonts/fonts.css` above. This single CDN link loads all four families (both scripts) for online prototypes only:
 
 ```html
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,200;0,300;0,400;0,500;1,300&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,200;0,300;0,400;0,500;1,300&family=Noto+Naskh+Arabic:wght@400;500;600&family=Noto+Sans+Arabic:wght@200;300;400;500&display=swap" rel="stylesheet">
 ```
+
+### Arabic & Bilingual Typography
+
+Isaac Architects is an Alexandria practice; Arabic is a first-class part of the system, not an afterthought. Two Arabic faces partner the Latin pair:
+
+| Role | Latin | Arabic | Why |
+|------|-------|--------|-----|
+| Display / headings | Cormorant Garamond | **Noto Naskh Arabic** | Classical Naskh carries the same editorial, manuscript gravity as a Garamond |
+| Body / UI | DM Sans | **Noto Sans Arabic** | Clean, even, modern — the calm sans counterpart to DM Sans |
+
+Noto was chosen for neutrality and complete glyph coverage — it never calls attention to itself, which is the whole point of the brand.
+
+**Bilingual font stacks.** Layer the Latin face first and the Arabic face as fallback. The browser uses the Latin face for Latin glyphs and automatically falls through to the Arabic face for Arabic glyphs — one variable set serves both scripts and both directions:
+
+```css
+:root {
+  --serif: 'Cormorant Garamond', 'Noto Naskh Arabic', Georgia, serif;
+  --sans:  'DM Sans', 'Noto Sans Arabic', 'Helvetica Neue', sans-serif;
+}
+```
+
+**Direction.** Set `dir="rtl"` and `lang="ar"` on Arabic blocks (or `<html lang="ar" dir="rtl">` for fully-Arabic pages). Mirror the layout for RTL — text alignment, list markers, and asymmetric padding flip; the logo lockup and hairline rule stay centered and do not mirror.
+
+**Weight mapping.** Arabic reads heavier at the same numeric weight, and Naskh has no ultra-light cuts. Step up the Arabic weight rather than matching the number:
+
+| Latin usage | Latin weight | Arabic weight |
+|-------------|--------------|---------------|
+| Page titles / headlines | Cormorant 300 | Noto Naskh 400 |
+| Section / editorial | Cormorant 400–500 | Noto Naskh 500 |
+| Body copy | DM Sans 300 | Noto Sans Arabic 300–400 |
+| Tagline / micro-labels | DM Sans 200 | Noto Sans Arabic 300 (never 200) |
+
+**Arabic-specific rules:**
+
+- **Never letter-space Arabic.** Tracking breaks the cursive joins. The brand's letter-spaced uppercase Latin treatments (tagline, nav, section numbers) have **no** Arabic equivalent — differentiate Arabic with size, weight, and color instead of tracking.
+- **No italics.** Arabic has no italic; never synthesize an oblique. Use weight or Stone color for emphasis.
+- **The "ARCHITECTS" tagline stays Latin** — it is part of the logo lockup. Do not translate it or typeset it in Arabic.
+- **Numerals:** pick Western (0–9) or Eastern Arabic-Indic (٠–٩) and stay consistent within a document. Default to Western for international proposals unless the client prefers Eastern.
+- Line-height runs slightly looser for Arabic (Naskh ascenders/descenders are tall): add ~0.1–0.15 over the Latin value.
 
 ### Typography Rules
 
