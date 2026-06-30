@@ -158,6 +158,17 @@ Posts use the brand typography only. No graphic templates with corner ornaments,
 
 ---
 
+## On Proposals — The Contact Band
+
+The back-cover contact band on the first major proposal (White Yard) went through the same subtraction discipline as the rest of the system. The first version carried a phone number with a secondary "subtext" line and a dedicated Social column. Both were removed:
+
+- The phone **subtext** repeated what the label already said — it added a line without adding information.
+- The **Social column** invited exactly the feed-ornamentation the brand otherwise rejects (see *No Social Media Ornamentation*). A proposal is correspondence, not a campaign; the channels that matter are the studio, the site, an email, and a direct line.
+
+What remained is a four-column band — Studio, Web, Correspondence, Telephone — each a Stone micro-label over a Cormorant value over one faint italic descriptor. Four facts, evenly weighted, nothing repeated. The band is a small instance of the whole brand: when a layout feels finished, remove one more thing and check whether it improved. Here it did.
+
+---
+
 ## When the Brand Will Need Updating
 
 This identity should serve the practice for 8–12 years before requiring revision. The triggers that would force a rebrand:

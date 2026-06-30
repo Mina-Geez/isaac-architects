@@ -347,6 +347,55 @@ Captions, taglines, and metadata follow the same restraint as the visual system:
 - 28mm top/bottom margins, 24mm left/right
 - Footer: full-width hairline + legal info in 7px DM Sans / Warm Gray
 
+### Proposals & Presentations
+
+Multi-page proposals and presentation decks (A4 pages) are the firm's primary new-business deliverable. They follow the same restraint as every other surface. These conventions were settled during production of the first major proposal (White Yard) — follow them rather than re-deriving each time.
+
+**Covers (front and back)**
+
+- Use the **official one-piece lockup** (mark + hairline rule + "ARCHITECTS") as a single locked unit on *both* covers. Never reassemble the lockup from separate pieces or retype "ARCHITECTS" beside the mark — cover-to-cover consistency is the point.
+- The front cover carries a **full-bleed hero image** — architectural, editorial, darkened 15–30% behind any text.
+- Keep the cover lockup quiet: **~78px tall** is the tested size on an A4 cover. Resist going larger.
+
+**Front-cover authorship credit** — the principal is named beneath the title block:
+
+```html
+<div style="font-family:'DM Sans',sans-serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--stone);margin-bottom:6px">Designed by</div>
+<div style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:400;color:var(--paper);line-height:1.15">Mina K. Isaac</div>
+<div style="font-family:'DM Sans',sans-serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(240,237,232,0.45);margin-top:7px">isaacarchitects.com</div>
+```
+
+**Back cover**
+
+- Lead with an **enlarged closing statement** (Cormorant Garamond 300, generous size) — the back cover is a deliberate full stop, not a footer.
+- Close with a **four-column contact band** on a Deep background. An earlier version carried a phone "subtext" line and a separate Social column; both were dropped for restraint. **No social column — four columns only.**
+
+Contact band — per column: Stone micro-label / Cormorant value / one faint italic descriptor:
+
+```html
+<div style="border-top:1px solid rgba(240,237,232,0.25);padding-top:18px;display:grid;grid-template-columns:repeat(4,1fr);gap:8mm">
+  <!-- one block per column -->
+  <div>
+    <div style="font-family:'DM Sans',sans-serif;font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:var(--stone);margin-bottom:10px">Studio</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:400;color:var(--paper);line-height:1.4">Isaac Architects</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:11px;font-style:italic;color:rgba(240,237,232,0.65);margin-top:3px">Alexandria, Egypt</div>
+  </div>
+</div>
+```
+
+The four columns, in order:
+
+| Label | Value | Descriptor |
+|-------|-------|------------|
+| Studio | Isaac Architects | *Alexandria, Egypt* |
+| Web | isaacarchitects.com | *Selected Works* |
+| Correspondence | mina@isaacarchitects.com | *New Project Enquiries* |
+| Telephone | +20 127 434 8575 | *Direct Line* |
+
+**Page footer** — project attribution left, page number `NN / NN` right, in the standard `.page-footer` style (8px DM Sans / Warm Gray).
+
+**Typographic polish** — no orphan words (a lone word wrapping onto its own line) in titles or statements; tighten the measure or rebalance the line instead.
+
 ### Social Media
 
 - Profile mark: `assets/logo-mark.svg`, centered on Paper background
