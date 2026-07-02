@@ -1,4 +1,5 @@
 +++
+
 name = "Afify Palace"
 location = "Hawaria, Egypt"
 category = "Residential"
@@ -18,19 +19,10 @@ src = "02.jpg"
 alt = "Afify Palace principal facade with landscaped forecourt and fountain"
 [[gallery]]
 src = "03.jpg"
-alt = "Afify Palace rear elevation and garden terrace"
+alt = "Afify Palace frontal elevation with domes and portico"
 [[gallery]]
 src = "04.jpg"
-alt = "ornate reception salon with chandelier and red velvet seating"
-[[gallery]]
-src = "05.jpg"
-alt = "arched alcove with classical molding and decorative vase"
-[[gallery]]
-src = "06.jpg"
-alt = "grand chandelier salon"
-[[gallery]]
-src = "07.jpg"
-alt = "carved credenza in a marble hall"
+alt = "Afify Palace dramatic three-quarter view of the entrance wing"
 +++
 
 Classical proportions, ceremonial symmetry, and ornate detailing throughout.

@@ -1,4 +1,5 @@
 +++
+
 name = "Zafer Property Landscape"
 location = "Egypt"
 category = "Landscape"
@@ -13,12 +14,6 @@ draft = false
 [[gallery]]
 src = "01.jpg"
 alt = "full property landscape master plan with pool"
-[[gallery]]
-src = "02.jpg"
-alt = "front yard landscape plan with zones"
-[[gallery]]
-src = "03.jpg"
-alt = "back yard landscape plan with pool"
 +++
 
 Each zone is named and choreographed in relationship to the others — the lake feeds the garden; the garden frames the pool; the pool returns the eye to the lake.

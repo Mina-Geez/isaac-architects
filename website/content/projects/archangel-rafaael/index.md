@@ -9,7 +9,7 @@ lead = "An ornate interior commission for a nursing home — architecture balanc
 hero = "hero.jpg"
 order = 5
 featured = false
-draft = false
+draft = true
 [[gallery]]
 src = "01.jpg"
 alt = "hero rotunda entrance with curtain wall and cross"

@@ -9,7 +9,7 @@ lead = "A 650 square-meter modern minimalist villa — where the rendering becam
 hero = "hero.jpg"
 order = 9
 featured = false
-draft = false
+draft = true
 [[gallery]]
 src = "01.jpg"
 alt = "modern Villa Tadros exterior with cantilevered slabs"

@@ -1,4 +1,5 @@
 +++
+
 name = "Villa Emad Rizk"
 location = "Egypt"
 category = "Residential"
@@ -16,9 +17,6 @@ alt = "Villa Emad Rizk with cantilevered upper floor over the entrance court"
 [[gallery]]
 src = "02.jpg"
 alt = "Villa Emad Rizk timber-clad street elevation at dusk"
-[[gallery]]
-src = "03.jpg"
-alt = "Villa Emad Rizk glazed entrance and forecourt"
 +++
 
 Horizontal roof planes float over glass and stone; timber screens filter the light.

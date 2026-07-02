@@ -1,5 +1,6 @@
 +++
 
+
 name = "Vidorra Commercial Centre"
 location = "King Mariout, Egypt"
 category = "Commercial"
@@ -25,7 +26,7 @@ src = "04.jpg"
 alt = "Vidorra Mall central plaza illuminated at night"
 [[gallery]]
 src = "05.jpg"
-alt = "Vidorra Mall panoramic street frontage after dark"
+alt = "Vidorra Mall red-stone arcade frontage"
 [[gallery]]
 src = "06.jpg"
 alt = "Vidorra Mall as built, stone arcade and glazed shopfronts"

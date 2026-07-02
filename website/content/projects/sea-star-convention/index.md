@@ -1,5 +1,6 @@
 +++
 
+
 name = "Sea Star Convention Centre"
 location = "Alexandria, Egypt"
 category = "Hospitality"
@@ -25,10 +26,10 @@ src = "04.jpg"
 alt = "ballroom stage under violet event lighting"
 [[gallery]]
 src = "05.jpg"
-alt = "columned ballroom with crystal chandeliers"
+alt = "banquet hall set with round tables and drapery"
 [[gallery]]
 src = "06.jpg"
-alt = "floral centrepiece under violet uplighting"
+alt = "ballroom detail with chandeliers and stage"
 [[gallery]]
 src = "07.jpg"
 alt = "interior circulation corridor"
