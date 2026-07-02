@@ -1,4 +1,5 @@
 +++
+
 name = "Sea Star Convention Centre"
 location = "Alexandria, Egypt"
 category = "Hospitality"
@@ -7,33 +8,30 @@ area = "—"
 status = "Built"
 lead = "A large-scale events and convention centre designed for weddings, conferences, and civic gatherings."
 hero = "hero.jpg"
-order = 5
+order = 6
 featured = true
 draft = false
 [[gallery]]
 src = "01.jpg"
-alt = "Sea Star Convention Centre completed exterior photo at dusk"
+alt = "Sea Star Convention Centre daytime render with arched entrance"
 [[gallery]]
 src = "02.jpg"
-alt = "Sea Star Convention Centre daylight entrance facade"
+alt = "Sea Star Convention Centre street facade by day"
 [[gallery]]
 src = "03.jpg"
-alt = "Sea Star Convention Centre evening exterior with lit canopy"
+alt = "grand ballroom set for a banquet with draped ceiling"
 [[gallery]]
 src = "04.jpg"
-alt = "banquet ballroom set for event with uplighting"
+alt = "ballroom stage under violet event lighting"
 [[gallery]]
 src = "05.jpg"
-alt = "wedding hall entrance with floral arch"
+alt = "columned ballroom with crystal chandeliers"
 [[gallery]]
 src = "06.jpg"
-alt = "ballroom interior with floral installations"
+alt = "floral centrepiece under violet uplighting"
 [[gallery]]
 src = "07.jpg"
-alt = "Sea Star venue at night with illuminated signage"
-[[gallery]]
-src = "08.jpg"
-alt = "exterior photo of Sea Stars convention centre entrance"
+alt = "interior circulation corridor"
 +++
 
 The interiors stage moments — pink-lit ceremonial halls, soaring foyers, processional sequences from entry to celebration.

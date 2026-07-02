@@ -1,4 +1,5 @@
 +++
+
 name = "Panacea 2 Compound"
 location = "King Mariout, Egypt"
 category = "Residential"
@@ -9,22 +10,22 @@ lead = "A residential community of 32 townhouse villas, 10 standalone villas, an
 hero = "hero.jpg"
 order = 3
 featured = false
-draft = false
+draft = true
 [[gallery]]
 src = "01.jpg"
-alt = "dusk street view of Panacea 2 compound facades with light trails"
+alt = "Panacea 2 apartment building overlooking the pool courtyard"
 [[gallery]]
 src = "02.jpg"
-alt = "dusk apartment facade with pool and palms"
+alt = "Panacea 2 residential block at dusk with warm facade lighting"
 [[gallery]]
 src = "03.jpg"
-alt = "twin villas exterior with garden footbridge and palms"
+alt = "Panacea 2 rear elevation in evening light"
 [[gallery]]
 src = "04.jpg"
-alt = "twin villas back view with street"
+alt = "Panacea 2 front elevation study"
 [[gallery]]
 src = "05.jpg"
-alt = "apartments back view rendering"
+alt = "Panacea 2 building seen from the garden approach"
 +++
 
 Anchored by a half Olympic swimming pool and a central clubhouse, the masterplan balances density and privacy, public and intimate.

@@ -7,7 +7,7 @@ area = "650 sqm"
 status = "Built"
 lead = "A 650 square-meter modern minimalist villa — where the rendering became the building."
 hero = "hero.jpg"
-order = 4
+order = 9
 featured = false
 draft = false
 [[gallery]]

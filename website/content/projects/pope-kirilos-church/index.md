@@ -9,7 +9,7 @@ lead = "A Byzantine-style church anchored by a prominent central dome."
 hero = "hero.jpg"
 order = 11
 featured = false
-draft = false
+draft = true
 [[gallery]]
 src = "01.jpg"
 alt = "Pope Kirilos Church hero render with domes and arched stained-glass facade"

@@ -9,7 +9,7 @@ lead = "A Mediterranean villa — a quiet tribute to the regional architectural 
 hero = "hero.jpg"
 order = 13
 featured = false
-draft = false
+draft = true
 [[gallery]]
 src = "01.jpg"
 alt = "rear elevation render with pool and pergola"

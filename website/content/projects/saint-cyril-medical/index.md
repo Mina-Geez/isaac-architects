@@ -9,7 +9,7 @@ lead = "A modern medical facility planned around patient comfort and clinical ef
 hero = "hero.jpg"
 order = 15
 featured = false
-draft = false
+draft = true
 [[gallery]]
 src = "01.jpg"
 alt = "Saint Cyril Medical Centre street view"

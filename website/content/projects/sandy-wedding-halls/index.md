@@ -9,7 +9,7 @@ lead = "A grand wedding venue with layered interiors and a deliberate sense of a
 hero = "hero.jpg"
 order = 12
 featured = true
-draft = false
+draft = true
 [[gallery]]
 src = "01.jpg"
 alt = "foyer with crystal chandeliers and stair"

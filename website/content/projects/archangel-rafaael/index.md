@@ -7,7 +7,7 @@ area = "—"
 status = "—"
 lead = "An ornate interior commission for a nursing home — architecture balancing dignity with warmth."
 hero = "hero.jpg"
-order = 18
+order = 5
 featured = false
 draft = false
 [[gallery]]

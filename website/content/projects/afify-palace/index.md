@@ -7,32 +7,29 @@ area = "—"
 status = "—"
 lead = "A grand palatial residence built at a ceremonial scale."
 hero = "hero.jpg"
-order = 14
+order = 7
 featured = false
 draft = false
 [[gallery]]
 src = "01.jpg"
-alt = "Afify Palace exterior rendering with pool and gardens"
+alt = "Afify Palace three-quarter render revealing the full palatial massing and domes"
 [[gallery]]
 src = "02.jpg"
-alt = "Afify Palace main entrance with fountain and stairs"
+alt = "Afify Palace principal facade with landscaped forecourt and fountain"
 [[gallery]]
 src = "03.jpg"
-alt = "Afify Palace side wing entrance render"
+alt = "Afify Palace rear elevation and garden terrace"
 [[gallery]]
 src = "04.jpg"
-alt = "Afify Palace garden pathway and facade render"
-[[gallery]]
-src = "05.jpg"
 alt = "ornate reception salon with chandelier and red velvet seating"
 [[gallery]]
-src = "06.jpg"
+src = "05.jpg"
 alt = "arched alcove with classical molding and decorative vase"
 [[gallery]]
-src = "07.jpg"
+src = "06.jpg"
 alt = "grand chandelier salon"
 [[gallery]]
-src = "08.jpg"
+src = "07.jpg"
 alt = "carved credenza in a marble hall"
 +++
 

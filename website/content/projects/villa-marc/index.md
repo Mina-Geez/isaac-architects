@@ -9,7 +9,7 @@ lead = "A 400 square-meter contemporary villa shaped by clean geometric lines an
 hero = "hero.jpg"
 order = 9
 featured = false
-draft = false
+draft = true
 [[gallery]]
 src = "01.jpg"
 alt = "modern Villa Marc cluster exterior render"

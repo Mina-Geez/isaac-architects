@@ -1,4 +1,5 @@
 +++
+
 name = "Rakoty Language National School"
 location = "Agami, Alexandria"
 category = "Institutional"
@@ -7,21 +8,21 @@ area = "4,500 sqm"
 status = "—"
 lead = "A 42-classroom institution wrapped in a glass-and-stone envelope."
 hero = "hero.jpg"
-order = 10
+order = 8
 featured = false
 draft = false
 [[gallery]]
 src = "01.jpg"
-alt = "Rakoty Language National School — neo-classic facade rendering with arched glazing"
+alt = "Rakoty School main frontage with lawn and glazed stair tower"
 [[gallery]]
 src = "02.jpg"
-alt = "school exterior hero with central glass tower and green lawn"
+alt = "Rakoty School long stone-and-glass facade"
 [[gallery]]
 src = "03.jpg"
-alt = "close-up of glass entrance tower"
+alt = "Rakoty School glazed corner entrance"
 [[gallery]]
 src = "04.jpg"
-alt = "street view of school block with palms"
+alt = "Rakoty School shaded arcade courtyard"
 +++
 
 4,500 square meters in Agami, Alexandria. The neo-classic detailing borrows from the surrounding Mediterranean fabric while the generous fenestration signals a modern educational ethic.

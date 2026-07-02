@@ -9,7 +9,7 @@ lead = "A Gothic-inspired church — built to carry the eye, and the attention, 
 hero = "hero.jpg"
 order = 6
 featured = false
-draft = false
+draft = true
 [[gallery]]
 src = "01.jpg"
 alt = "exterior rendering of church with bell tower and palms"

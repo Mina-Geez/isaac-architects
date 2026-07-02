@@ -1,4 +1,5 @@
 +++
+
 name = "Royal Wedding Complex"
 location = "Alexandria, Egypt"
 category = "Hospitality"
@@ -7,33 +8,30 @@ area = "—"
 status = "Built"
 lead = "An elegant classical wedding venue and event-hall complex."
 hero = "hero.jpg"
-order = 8
+order = 2
 featured = false
 draft = false
 [[gallery]]
 src = "01.jpg"
-alt = "Royal Wedding Complex hero rendering with domed pavilions"
+alt = "grand cream-and-gold ballroom set for a wedding banquet"
 [[gallery]]
 src = "02.jpg"
-alt = "Royal Wedding Complex illuminated purple-violet night facade"
+alt = "ballroom with projection screen and round banquet tables"
 [[gallery]]
 src = "03.jpg"
-alt = "Royal Wedding Complex daylight three-quarter view rendering"
+alt = "ballroom dressed in white and blush for a reception"
 [[gallery]]
 src = "04.jpg"
-alt = "Royal Wedding Complex rotunda entrance render"
+alt = "wedding stage under violet lighting with a floral backdrop"
 [[gallery]]
 src = "05.jpg"
-alt = "rendering of grand wedding complex with arches"
+alt = "ceremonial hall lit in violet with a decorated dais"
 [[gallery]]
 src = "06.jpg"
-alt = "purple-lit nighttime exterior of wedding hall"
+alt = "bridal reception lounge with soft seating"
 [[gallery]]
 src = "07.jpg"
-alt = "purple-lit classical facade at dusk"
-[[gallery]]
-src = "08.jpg"
-alt = "grand staircase with marble walls"
+alt = "stone pavilion exterior within the wedding complex"
 +++
 
 Designed around a simple premise: the most important days deserve the most considered rooms.

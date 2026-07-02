@@ -9,7 +9,7 @@ lead = "A modern apartment interior with a refined material palette and a single
 hero = "hero.jpg"
 order = 16
 featured = false
-draft = false
+draft = true
 [[gallery]]
 src = "01.jpg"
 alt = "warm living room with fireplace and arched bookcase"

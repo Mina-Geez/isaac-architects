@@ -9,7 +9,7 @@ lead = "A 26,000 square-meter educational campus designed to house three schools
 hero = "hero.jpg"
 order = 2
 featured = false
-draft = false
+draft = true
 [[gallery]]
 src = "01.jpg"
 alt = "BE Sagy domed rotunda entrance — hero rendering of administrative building"

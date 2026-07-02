@@ -7,7 +7,7 @@ area = "—"
 status = "—"
 lead = "A comprehensive landscape commission integrating swimming pools, multi-zone gardens, and an artificial lake into one private-resort experience."
 hero = "hero.jpg"
-order = 17
+order = 10
 featured = false
 draft = false
 [[gallery]]
